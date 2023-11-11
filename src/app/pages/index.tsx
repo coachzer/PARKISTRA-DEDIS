@@ -1,12 +1,13 @@
-import Head from 'next/head'; //ne znam ? 
+import Head from 'next/head';
 import Header from '../components/Header';
+import type { NextPage } from 'next'; // Import NextPage type for TypeScript
 
-export default function Home() {
+const Home: NextPage = () => {
   return (
     <div>
       <Head>
         <title>Home | Park Istra</title>
-        <meta name="description" content="napisacemo ovde sta zelimo" />
+        <meta name="description" content="We will write here what we want" />
         {/* Add any other SEO-related tags here */}
       </Head>
 
@@ -21,4 +22,6 @@ export default function Home() {
       {/* Add your footer here */}
     </div>
   );
-}
+};
+
+export default Home;
