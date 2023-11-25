@@ -42,19 +42,18 @@ export default function Navbar() {
     ];
 
     return (
-        <div className="sticky top-0 flex justify-between items-center w-full h-20 px-4 text-white bg-[#ECE3CE] nav">
+        <div className="flex justify-between items-center w-full h-20 px-4 text-white bg-[#ECE3CE] nav">
             <div>
                 {/* <h1 className="text-5xl font-signature ml-2"><a className="link-underline hover:transition ease-in-out delay-150 hover:underline hover:decoration-solid" href="">Logo</a></h1> */}
-                {/* <h1 className="text-5xl font-signature ml-2">
+                { <h1 className="text-5xl font-signature ml-2">
                     <a
                         className="link-underline link-underline-black"
-                        href=""
-                        target="_blank"
+                        href="/"
                         rel="noreferrer"
                     >
-                        Logo
+                        <img src="/logoGreen.png" alt="Logo" className="w-24 h-24"/>
                     </a>
-                </h1> */}
+                </h1> }
             </div>
             <div className="content-center m-auto">
                 <ul className="hidden md:flex">

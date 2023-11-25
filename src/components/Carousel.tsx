@@ -1,49 +1,46 @@
 // components/Carousel.tsx
 import { useState, useEffect } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import Image from 'next/image';
+import styles from './Carousel.module.css'; // Import your CSS module
+
 interface CarouselProps {
   images: string[];
 }
 
 const Carousel: React.FC<CarouselProps> = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [transition, setTransition] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const nextImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    setTransition(true);
+    setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   const prevImage = () => {
-    setCurrentIndex(
+    setActiveIndex(
       (prevIndex) => (prevIndex - 1 + images.length) % images.length
     );
-    setTransition(true);
   };
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       nextImage();
-    }, 50000);
+    }, 5000);
 
     return () => clearInterval(intervalId);
-  }, [currentIndex]);
-
-  const handleTransitionEnd = () => {
-    setTransition(false);
-  };
+  }, [activeIndex]);
 
   return (
-    <div className="flex overflow-hidden w-full h-full">
-        
-      <img
-        src={images[currentIndex]}
-        alt={`Image ${currentIndex + 1}`}
-        className = "w-full h-screen object-cover"
-        onTransitionEnd={handleTransitionEnd}
+    <div className="flex overflow-hidden w-full h-full relative">
+      {images.map((image, index) => (
+        <img
+          key={index}
+          src={image}
+          alt={`Image ${index + 1}`}
+          className={`w-full h-[46rem] object-cover ${
+            index === activeIndex ? styles.active : styles.inactive
+          }`}
         />
-      <h1 className="absolute bottom-4 left-4 text-[#ECE3CE] drop-shadow-xl text-3xl font-bold ">
+      ))}
+      <h1 className="absolute bottom-5 left-5 text-[#ECE3CE] text-4xl font-bold bg-black p-2 bg-opacity-30">
         Parkistra, brings hero in you!
       </h1>
 

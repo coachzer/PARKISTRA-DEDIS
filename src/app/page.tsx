@@ -37,7 +37,7 @@ export default function Home() {
   
 
   return (
-      <main className = "bg-[#ECE3CE]">
+      <main className = "bg-[#ECE3CE]" >
         <div>
           <Carousel images={images} />
         </div>  
@@ -45,7 +45,7 @@ export default function Home() {
       {projects.map((project, index) => (
         <Project key={index} {...project} />
       ))}
-    </div>
+        </div>
       </main>
   );
 }

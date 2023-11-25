@@ -1,0 +1,29 @@
+/* Carousel.module.css */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  .active {
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+  
+  .inactive {
+    animation: fadeOut 1s ease-in-out forwards;
+    opacity: 0;
+    position: absolute;
+  }
+  
