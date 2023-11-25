@@ -12,7 +12,7 @@ export default function Navbar() {
         {
             id: 1,
             link: "HOME",
-            href: "home",
+            href: "/",
         },
         {
             id: 2,
@@ -42,7 +42,7 @@ export default function Navbar() {
     ];
 
     return (
-        <div className="flex justify-between items-center w-full h-20 px-4 text-white bg-[#ECE3CE] nav">
+        <div className="sticky top-0 flex justify-between items-center w-full h-20 px-4 text-white bg-[#ECE3CE] nav">
             <div>
                 {/* <h1 className="text-5xl font-signature ml-2"><a className="link-underline hover:transition ease-in-out delay-150 hover:underline hover:decoration-solid" href="">Logo</a></h1> */}
                 {/* <h1 className="text-5xl font-signature ml-2">
