@@ -22,7 +22,7 @@ async function addProject(formData: FormData) {
         data: { name, description, imageUrl },
     });
 
-    redirect("/");
+    redirect("/projects");
 }
 
 export default function AddProjectPage() {

@@ -5,6 +5,12 @@ import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
 
+// The Credentials provider allows you to handle signing in with arbitrary credentials, such as a username and password, two-factor authentication or hardware device
+
+// The Credentials provider is specified like other providers, except that you need to define a handler for authorize() that accepts credentials submitted via HTTP POST as input and returns: 
+
+//   -  A user object, which indicates the credentials are valid.
+
 // next-auth gives us a signin page
 export const authOptions = {
     providers: [
@@ -47,6 +53,10 @@ export const authOptions = {
             },
         }),
     ],
+
+    // NEXTAUTH_SECRET
+    // Used to encrypt the NextAuth.js JWT, and to hash email verification tokens. This is the default value for the secret option in NextAuth and Middleware.
+
     secret: process.env.NEXTAUTH_SECRET,
 };
 
