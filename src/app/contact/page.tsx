@@ -5,8 +5,8 @@ import Head from "next/head";
 const Contact: React.FC = () => {
     return (
         <main className="bg-[#ECE3CE]">
-            <div className="contact-container bg-gray-100 p-8 rounded-md shadow-md max-w-2xl mx-auto flex items-center">
-                <div className="text-left pr-8">
+            <div className="contact-container bg-gray-100 p-8 rounded-md shadow-md max-w-4xl mx-auto flex items-center mt-11">
+                <div className="text-center pr-8">
                     <h1 className="text-4xl font-bold mb-6 text-gray-800">
                         Sustainability Park Istra
                     </h1>
