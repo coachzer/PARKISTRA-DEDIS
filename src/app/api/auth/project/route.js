@@ -14,6 +14,19 @@ export async function GET() {
     }
 }
 
+export async function POST(request) {
+    try {
+        const { name, description } = await request.json();
+        await connectToDatabase();
+        const project = await prisma.project.create({ data: { name, description } });
+        return NextResponse.json({ message: "Topic Created" }, { status: 201 });
+    } catch (error) {
+        return NextResponse.json({ message: "Server Error" }, { status: 500 });
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+
 export async function DELETE(req) {
     const id = req.nextUrl.searchParams.get("id");
     try {
@@ -33,3 +46,5 @@ export async function DELETE(req) {
         await prisma.$disconnect();
     }
 }
+
+

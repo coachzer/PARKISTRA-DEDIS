@@ -1,6 +1,9 @@
 import ProjectCard from "@/components/ProjectCard";
+import RemoveBtn from "@/components/RemoveProject";
 import prisma from "@/lib/db/prisma";
+import Link from "next/link";
 import React from "react";
+import { HiPencilAlt } from "react-icons/hi";
 
 export default async function ProjectsPage() {
     const projects = await prisma.project.findMany({
@@ -15,6 +18,10 @@ export default async function ProjectsPage() {
                 {projects.map((project) => (
                     <div key={project.id}>
                         <ProjectCard project={project} />
+                        <RemoveBtn id={project.id} />
+                        <Link href={`/edit-project/${project.id}`}>
+                            <HiPencilAlt size={24} />
+                        </Link>
                     </div>
                 ))}
             </div>

@@ -27,30 +27,34 @@ async function addProject(formData: FormData) {
 
 export default function AddProjectPage() {
     return (
-        <div>
-            <h1 className="text-lg mb-3 font-bold">Publish a Project</h1>
-            <form action={addProject}>
-                <input
-                    required
-                    name="name"
-                    placeholder="Name"
-                    className="mb-3 w-full input input-bordered"
-                />
-                <textarea
-                    required
-                    name="description"
-                    placeholder="Description"
-                    className="textarea-bordered textarea mb-3 w-full"
-                />
-                <input
-                    required
-                    name="imageUrl"
-                    placeholder="Image Url"
-                    type="url"
-                    className="mb-3 w-full input input-bordered"
-                />
-                <FormSubmitButton className="btn-block">Add Project</FormSubmitButton>
-            </form>
+        <div className="flex justify-center m-11">
+            <div className="card w-full bg-base-100 shadow-xl">
+                <div className="card-body">
+                    <h1 className="text-lg mb-3 font-bold">Publish a Project</h1>
+                    <form action={addProject}>
+                        <input
+                            required
+                            name="name"
+                            placeholder="Name"
+                            className="mb-3 w-full input input-bordered"
+                        />
+                        <textarea
+                            required
+                            name="description"
+                            placeholder="Description"
+                            className="textarea-bordered textarea mb-3 w-full"
+                        />
+                        <input
+                            required
+                            name="imageUrl"
+                            placeholder="Image Url"
+                            type="url"
+                            className="mb-3 w-full input input-bordered"
+                        />
+                        <FormSubmitButton className="btn-block">Add Project</FormSubmitButton>
+                    </form>
+                </div>
+            </div>
         </div>
     );
 }

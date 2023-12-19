@@ -22,3 +22,37 @@ export async function DELETE(req) {
         await prisma.$disconnect();
     }
 }
+
+export async function PUT(request, { params }) {
+    try {
+        const { id } = params;
+        const { newName: name, newDescription: description } = await request.json();
+
+        await prisma.project.update({
+            where: { id: id },
+            data: { name, description },
+        });
+
+        return NextResponse.json({ message: "Project updated" }, { status: 200 });
+    } catch (error) {
+        return NextResponse.json({ message: "Server Error" }, { status: 500 });
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+
+export async function GET(request, { params }) {
+    try {
+        const { id } = params;
+
+        const topic = await prisma.project.findUnique({
+            where: { id: id },
+        });
+
+        return NextResponse.json({ topic }, { status: 200 });
+    } catch (error) {
+        return NextResponse.json({ message: "Server Error" }, { status: 500 });
+    } finally {
+        await prisma.$disconnect();
+    }
+}

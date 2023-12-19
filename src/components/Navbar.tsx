@@ -1,7 +1,9 @@
 "use client";
 
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
@@ -40,21 +42,41 @@ export default function Navbar() {
             link: "CONTACT",
             href: "/contact",
         },
+        {
+            id: 7,
+            link: "ADD PROJECT",
+            href: "/add-project",
+        },
     ];
+
+    // const router = useRouter();
+
+    // const logoutHandler = async () => {
+    //     await signOut();
+    // };
+
+    // const loginHandler = async () => {
+    //     router.push("/api/auth/signin");
+    // };
+
+    // const { data, status } = useSession();
 
     return (
         <div className="flex justify-between items-center w-full h-20 px-4 text-white bg-[#ECE3CE] nav">
             <div>
                 {/* <h1 className="text-5xl font-signature ml-2"><a className="link-underline hover:transition ease-in-out delay-150 hover:underline hover:decoration-solid" href="">Logo</a></h1> */}
-                { <h1 className="text-5xl font-signature ml-2">
-                    <a
-                        className="link-underline link-underline-black"
-                        href="/"
-                        rel="noreferrer"
-                    >
-                        <img src="/logoGreen.png" alt="Logo" className="w-24 h-24"/>
-                    </a>
-                </h1> }
+                {
+                    <h1 className="text-5xl font-signature ml-2">
+                        <a
+                            className="link-underline link-underline-black"
+                            href="/"
+                            rel="noreferrer"
+                        >
+                            {/* <img src="/logoGreen.png" alt="Logo" className="w-24 h-24"/> */}
+                            <Image src={"/logoGreen.png"} alt={"Logo"} width={100} height={100} />
+                        </a>
+                    </h1>
+                }
             </div>
             <div className="content-center m-auto">
                 <ul className="hidden md:flex">
@@ -64,6 +86,17 @@ export default function Navbar() {
                             className="nav-links px-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 hover:text-white duration-200 link-underline"
                         >
                             <Link href={href}>{link}</Link>
+                            {/* <div>{JSON.stringify(data)}</div> */}
+                            {/* <div>
+                                {status === "unauthenticated" && (
+                                    <button onClick={loginHandler}>LOGIN</button>
+                                )}
+                            </div>
+                            <div>
+                                {status === "authenticated" && (
+                                    <button onClick={logoutHandler}>LOGOUT</button>
+                                )}
+                            </div> */}
                         </li>
                     ))}
                 </ul>

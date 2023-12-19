@@ -57,16 +57,9 @@ export default async function Home() {
 
     return (
         <div className="bg-[#ECE3CE]">
-            {/* <div>{JSON.stringify(data)}</div>
-            <div>
-                {status === "unauthenticated" && <button onClick={loginHandler}>LOGIN</button>}
-            </div>
-            <div>
-                {status === "authenticated" && <button onClick={logoutHandler}>LOGOUT</button>}
-            </div> */}
-            <div>
+            {/* <div>
                 <Carousel images={images} />
-            </div>
+            </div> */}
             <div>
                 <div className="hero rounded-xl bg-blue-200">
                     <div className="hero-content flex-col lg:flex-row">
@@ -82,12 +75,12 @@ export default async function Home() {
                             <h1 className="text-5xl font-bold">{projects[0].name}</h1>
                             <p className="py-6">{projects[0].description}</p>
                             <Link href={"/projects/" + projects[0].id} className="btn btn-primary">
-                                Check it out
+                                Check it out ❤️
                             </Link>
                         </div>
                     </div>
                 </div>
-                <div className="my-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+                <div className="my-4 px-4 gap-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
                     {projects.slice(1).map((project) => (
                         <ProjectCard key={project.id} project={project} />
                     ))}

@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 {/* <main className="p-4 max-w-7xl m-auto min-w-[300px]">
                     
                 </main> */}
-                <main>
+                <main className="bg-[#ECE3CE]">
                     <Navbar />
                     <AuthProvider>{children}</AuthProvider>
                 </main>

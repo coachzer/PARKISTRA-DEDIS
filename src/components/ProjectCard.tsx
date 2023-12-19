@@ -33,9 +33,9 @@ export default function ProjectCard({ project }: ProjectProps) {
                     <p>{project.description}</p>
                 </div>
             </Link>
-            <div className="card-actions justify-end">
+            {/* <div className="card-actions justify-end">
                 <RemoveBtn id={project.id} />
-            </div>
+            </div> */}
         </div>
     );
 }
