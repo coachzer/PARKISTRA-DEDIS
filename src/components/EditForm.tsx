@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function EditForm({
@@ -12,8 +12,22 @@ export default function EditForm({
     name: string;
     description: string;
 }) {
-    const [newName, setNewName] = useState(name);
-    const [newDescription, setNewDescription] = useState(description);
+    // const [newName, setNewName] = useState(name);
+    // const [newDescription, setNewDescription] = useState(description);
+
+    const [newName, setNewName] = useState("");
+    const [newDescription, setNewDescription] = useState("");
+
+    useEffect(() => {
+        async function fetchData() {
+            // Fetch your data here
+
+            setNewName(name);
+            setNewDescription(description);
+        }
+
+        fetchData();
+    }, [id, name, description]);
 
     const router = useRouter();
 
@@ -33,7 +47,7 @@ export default function EditForm({
                 throw new Error("Failed to update topic");
             }
 
-            router.refresh();
+            //router.refresh();
             router.push("/projects");
         } catch (error) {
             console.log(error);
