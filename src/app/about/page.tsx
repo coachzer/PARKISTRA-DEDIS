@@ -1,9 +1,8 @@
-// components/AboutUs.tsx
-import React from 'react';
-import Head from 'next/head';
-import p1Photo from "../../public/project1ParkIstra.jpeg";
-import p2Photo from "../../public/project2ParkIstra.jpeg";
-import p3Photo from "../../public/project3ParkIstra.jpeg";
+import React from "react";
+import Head from "next/head";
+import p1Photo from "../../../public/images/project1ParkIstra.jpeg";
+import p2Photo from "../../../public/images/project2ParkIstra.jpeg";
+import p3Photo from "../../../public/images/project3ParkIstra.jpeg";
 import Image from "next/image";
 
 const AboutUs: React.FC = () => {

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Logo from "../../public/images/logoGreen.png";
 
 // Bottom Navbar
 export default function Navbar() {
@@ -73,7 +74,7 @@ export default function Navbar() {
                             rel="noreferrer"
                         >
                             {/* <img src="/logoGreen.png" alt="Logo" className="w-24 h-24"/> */}
-                            <Image src={"/logoGreen.png"} alt={"Logo"} width={100} height={100} />
+                            <Image src={Logo} alt={"Logo"} width={100} height={100} />
                         </a>
                     </h1>
                 }

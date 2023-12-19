@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export default async function Instagram() {
     const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalink&access_token=IGQWRQWVVjY1F6WmdXZAHNOdk03aEhQVUhnVWdCQUl2VzRMaDgwdkRHZA3NlQS1zOGJUVnZAoZAG5BZAS05ZAWRwMmtDX1FiLWhsUU9tTVY0N0UtZAFB4V19TT3J1aDRLOUFBMnNCTWJIcU1aWDhBUmZAfVnh5NUFKc0VOQWsZD`; //${process.env.INSTAGRAM_KEY}
@@ -13,7 +14,13 @@ export default async function Instagram() {
                 {images &&
                     images.map((image: any) => (
                         <div key={image.id}>
-                            <img src={image.media_url} alt={image.caption} />
+                            <Image
+                                src={image.media_url}
+                                alt={image.caption}
+                                width={300}
+                                height={300}
+                                className="rounded-2xl border-black border-2"
+                            />
                         </div>
                     ))}
             </div>
