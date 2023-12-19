@@ -1,7 +1,6 @@
 import ProjectCard from "@/components/ProjectCard";
 import prisma from "@/lib/db/prisma";
 import React from "react";
-import Image from "next/image";
 
 export default async function ProjectsPage() {
     const projects = await prisma.project.findMany({
@@ -14,7 +13,9 @@ export default async function ProjectsPage() {
         <div>
             <div className="my-4 px-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                 {projects.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
+                    <div key={project.id}>
+                        <ProjectCard project={project} />
+                    </div>
                 ))}
             </div>
 

@@ -57,7 +57,7 @@ export default async function Home() {
     // ];
 
     return (
-        <main className="bg-[#ECE3CE]">
+        <div className="bg-[#ECE3CE]">
             {/* <div>{JSON.stringify(data)}</div>
             <div>
                 {status === "unauthenticated" && <button onClick={loginHandler}>LOGIN</button>}
@@ -88,7 +88,7 @@ export default async function Home() {
                         </div>
                     </div>
                 </div>
-                <div className="my-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 ">
+                <div className="my-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
                     {projects.slice(1).map((project) => (
                         <ProjectCard key={project.id} project={project} />
                     ))}
@@ -99,6 +99,6 @@ export default async function Home() {
                     <ProjectCard key={index} {...project} />
                 ))}
             </div> */}
-        </main>
+        </div>
     );
 }
