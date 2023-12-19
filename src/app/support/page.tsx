@@ -4,14 +4,9 @@ import Head from 'next/head';
 
 const SupportUs: React.FC = () => {
   return (
-    <>
     <main className='bg-[#ECE3CE]'>
-      <Head>
-        <title>Support Us | Park Istra</title>
-        <meta name="description" content="Support Park Istra by making a donation. Find information on wire transfers and use the provided form to submit your donation. Thank you for your support!" />
-      </Head>
-      <div className="support-us-container bg-gray-100 p-8 rounded-md shadow-md max-w-2xl mx-auto flex items-center">
-        <div className="text-left pr-8">
+      <div className="support-us-container bg-gray-100 rounded-md shadow-md max-w-4xl mx-auto p-8 mt-11 text-center ">
+        <div className="">
           <h1 className="text-4xl font-bold mb-6 text-gray-800">Support Park Istra</h1>
 
           <p className="text-gray-700 mb-6">
@@ -61,7 +56,7 @@ const SupportUs: React.FC = () => {
       </div>
       
       </main>
-    </>
+
   );
 };
 

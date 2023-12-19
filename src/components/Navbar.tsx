@@ -18,27 +18,27 @@ export default function Navbar() {
         {
             id: 2,
             link: "PROJECTS",
-            href: "projects",
+            href: "/projects",
         },
         {
             id: 3,
             link: "GALLERY",
-            href: "gallery",
+            href: "/gallery",
         },
         {
             id: 4,
             link: "ABOUT",
-            href: "about",
+            href: "/about",
         },
         {
             id: 5,
             link: "SUPPORT",
-            href: "support",
+            href: "/support",
         },
         {
             id: 6,
             link: "CONTACT",
-            href: "contact",
+            href: "/contact",
         },
     ];
 
@@ -46,15 +46,17 @@ export default function Navbar() {
         <div className="flex justify-between items-center w-full h-20 px-4 text-white bg-[#ECE3CE] nav">
             <div>
                 {/* <h1 className="text-5xl font-signature ml-2"><a className="link-underline hover:transition ease-in-out delay-150 hover:underline hover:decoration-solid" href="">Logo</a></h1> */}
-                { <h1 className="text-5xl font-signature ml-2">
-                    <a
-                        className="link-underline link-underline-black"
-                        href="/"
-                        rel="noreferrer"
-                    >
-                        <img src="/logoGreen.png" alt="Logo" className="w-24 h-24"/>
-                    </a>
-                </h1> }
+                {
+                    <h1 className="text-5xl font-signature ml-2">
+                        <a
+                            className="link-underline link-underline-black"
+                            href="/"
+                            rel="noreferrer"
+                        >
+                            <img src="/logoGreen.png" alt="Logo" className="w-24 h-24" />
+                        </a>
+                    </h1>
+                }
             </div>
             <div className="content-center m-auto">
                 <ul className="hidden md:flex">
