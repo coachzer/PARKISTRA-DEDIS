@@ -514,27 +514,25 @@ export default async function Instagram() {
 
     const images = feed.data;
     return (
-        <div className="bg-[#ECE3CE] m-4">
-            <div className="gap-4 grid grid-cols-1 md:grid-cols-4">
-                {images &&
-                    images.map((image: any) => (
-                        <div key={image.id} className="text-center ">
-                            <Link href={image.permalink}>
-                                <Image
-                                    src={image.media_url}
-                                    alt={image.caption}
-                                    width={300}
-                                    height={300}
-                                    className="rounded-2xl border-black border-2"
-                                />
-                                <p className="text-lg">{image.caption}</p>
-                                <p className="text-xs">
-                                    {image.timestamp.substring(0, 19).replace("T", " ")}
-                                </p>
-                            </Link>
-                        </div>
-                    ))}
-            </div>
+        <div className="gap-4 grid grid-cols-1 md:grid-cols-4 justify-items-center">
+            {images &&
+                images.map((image: any) => (
+                    <div key={image.id} className="text-center">
+                        <Link href={image.permalink}>
+                            <Image
+                                src={image.media_url}
+                                alt={image.caption}
+                                width={300}
+                                height={400}
+                                className="rounded-2xl border-black border-2 shadow-lg hover:shadow-xl transition duration-250 ease-in-out  transform hover:-translate-y-1 hover:scale-110"
+                            />
+                            <p className="text-lg">{image.caption}</p>
+                            <p className="text-xs">
+                                {image.timestamp.substring(0, 19).replace("T", " ")}
+                            </p>
+                        </Link>
+                    </div>
+                ))}
         </div>
     );
 }
