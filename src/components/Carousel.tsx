@@ -34,7 +34,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
                     key={index}
                     src={image}
                     alt={`Image ${index + 1}`}
-                    className={`w-full h-[46rem] object-cover ${
+                    className={`w-full h-[32rem] object-cover ${
                         index === activeIndex ? styles.active : styles.inactive
                     }`}
                 />
