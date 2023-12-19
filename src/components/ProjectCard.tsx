@@ -1,8 +1,10 @@
+"use client";
 // components/Project.tsx
 import React from "react";
 import Image from "next/image";
 import { Project } from "@prisma/client";
 import Link from "next/link";
+import RemoveBtn from "./RemoveProject";
 
 interface ProjectProps {
     project: Project;
@@ -11,25 +13,30 @@ export default function ProjectCard({ project }: ProjectProps) {
     const isNew = project.createdAt > new Date(Date.now() - 1000 * 60 * 60 * 24 * 7);
 
     return (
-        <Link
-            href={"/projects/" + project.id}
-            className="card w-full bg-base-100 hover:shadow-xl transition-shadow"
-        >
-            <figure>
-                <Image
-                    src={project.imageUrl}
-                    alt={project.name}
-                    width="800"
-                    height="400"
-                    className="h-48 object-cover"
-                />
-            </figure>
-            <div className="card-body">
-                <h2 className="card-title">{project.name}</h2>
-                {isNew && <div className="badge badge-secondary">RECENT</div>}
-                <p>{project.description}</p>
+        <div>
+            <Link
+                href={"/projects/" + project.id}
+                className="card w-full bg-base-100 hover:shadow-xl transition-shadow"
+            >
+                <figure>
+                    <Image
+                        src={project.imageUrl}
+                        alt={project.name}
+                        width="800"
+                        height="400"
+                        className="h-48 object-cover"
+                    />
+                </figure>
+                <div className="card-body">
+                    <h2 className="card-title">{project.name}</h2>
+                    {isNew && <div className="badge badge-secondary">RECENT</div>}
+                    <p>{project.description}</p>
+                </div>
+            </Link>
+            <div className="card-actions justify-end">
+                <RemoveBtn id={project.id} />
             </div>
-        </Link>
+        </div>
     );
 }
 

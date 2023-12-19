@@ -18,27 +18,27 @@ export default function Navbar() {
         {
             id: 2,
             link: "PROJECTS",
-            href: "projects",
+            href: "/projects",
         },
         {
             id: 3,
             link: "GALLERY",
-            href: "gallery",
+            href: "/gallery",
         },
         {
             id: 4,
             link: "ABOUT",
-            href: "about",
+            href: "/about",
         },
         {
             id: 5,
             link: "SUPPORT",
-            href: "support",
+            href: "/support",
         },
         {
             id: 6,
             link: "CONTACT",
-            href: "contact",
+            href: "/contact",
         },
     ];
 

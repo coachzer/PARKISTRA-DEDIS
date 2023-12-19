@@ -15,8 +15,7 @@ export async function GET() {
 }
 
 export async function DELETE(req) {
-    const searchParams = req.nextUrl.searchParams;
-    const id = searchParams.get("id");
+    const id = req.nextUrl.searchParams.get("id");
     try {
         await connectToDatabase();
         const { data, error } = await prisma.project.delete({
@@ -26,7 +25,7 @@ export async function DELETE(req) {
             return NextResponse({ message: "Failed to delete item" }, { status: 500 });
         }
 
-        return NextResponse.json({ data });
+        return NextResponse.json({ message: "Project deleted" }, { status: 200 });
         // return NextResponse.json({ message: "Project deleted successfully" }, { status: 200 });
     } catch (error) {
         return NextResponse({ message: "Internal Server Error - DELETE" }, { status: 500 });
