@@ -58,9 +58,9 @@ export default async function Home() {
 
     return (
         <div className="bg-[#ECE3CE]">
-            {/* <div>
+            <div>
                 <Carousel images={images} />
-            </div> */}
+            </div>
             <div>
                 <div className="hero rounded-xl bg-blue-200">
                     <div className="hero-content flex-col lg:flex-row">

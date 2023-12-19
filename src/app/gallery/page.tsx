@@ -509,7 +509,7 @@ export default async function Instagram() {
     const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalink,comment_count&access_token=IGQWRQWVVjY1F6WmdXZAHNOdk03aEhQVUhnVWdCQUl2VzRMaDgwdkRHZA3NlQS1zOGJUVnZAoZAG5BZAS05ZAWRwMmtDX1FiLWhsUU9tTVY0N0UtZAFB4V19TT3J1aDRLOUFBMnNCTWJIcU1aWDhBUmZAfVnh5NUFKc0VOQWsZD`; //${process.env.INSTAGRAM_KEY}
     const data = await fetch(url);
     const feed = await data.json();
-    console.log(feed);
+    //console.log(feed);
 
     const images = feed.data;
     return (
@@ -517,19 +517,19 @@ export default async function Instagram() {
             <div className="gap-4 grid grid-cols-1 md:grid-cols-4">
                 {images &&
                     images.map((image: any) => (
-                        <Link href={image.permalink}>
-                            <div key={image.id} className="text-center ">
+                        <div key={image.id} className="text-center ">
+                            <Link href={image.permalink}>
                                 <img
                                     src={image.media_url}
                                     alt={image.caption}
                                     className="rounded-2xl border-black border-2"
                                 />
-                                
                                 <p className="text-lg">{image.caption}</p>
-                                <p className="text-xs">{image.timestamp.substring(0, 19).replace("T", " ")}</p>
-                                <p></p>
-                            </div>
-                        </Link>
+                                <p className="text-xs">
+                                    {image.timestamp.substring(0, 19).replace("T", " ")}
+                                </p>
+                            </Link>
+                        </div>
                     ))}
             </div>
         </div>

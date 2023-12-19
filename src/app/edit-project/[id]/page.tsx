@@ -2,6 +2,7 @@ import EditForm from "@/components/EditForm";
 import { useState, useEffect } from "react";
 
 async function getProjectById(id: string) {
+
     try {
         const res = await fetch(`/api/auth/project/${id}`, {
             cache: "no-store",
