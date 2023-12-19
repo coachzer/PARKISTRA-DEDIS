@@ -26,9 +26,10 @@
         "next-env.d.ts",
         "**/*.ts",
         "**/*.tsx",
-        ".next/types/**/*.ts",
         "src/app/api/auth/[...nextauth]/route.js",
-        "src/app/api/auth/project/route.js"
+        "src/app/api/auth/project/route.js",
+        ".next/types/**/*.ts",
+        "src/app/helpers/authOptions.ts"
     ],
     "exclude": ["node_modules"]
 }

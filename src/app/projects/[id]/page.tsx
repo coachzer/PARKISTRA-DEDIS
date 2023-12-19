@@ -24,17 +24,17 @@ const getProject = cache(async (id: string) => {
     return project;
 });
 
-export async function generateMetadate({ params: { id } }: ProjectPageProps): Promise<Metadata> {
-    const project = await getProject(id);
+// export async function generateMetadate({ params: { id } }: ProjectPageProps): Promise<Metadata> {
+//     const project = await getProject(id);
 
-    return {
-        title: project.name + " - Parkistra",
-        description: project.description,
-        openGraph: {
-            images: [{ url: project.imageUrl }],
-        },
-    };
-}
+//     return {
+//         title: project.name + " - Parkistra",
+//         description: project.description,
+//         openGraph: {
+//             images: [{ url: project.imageUrl }],
+//         },
+//     };
+// }
 
 export default async function ProjectPage({ params: { id } }: ProjectPageProps) {
     const project = await getProject(id);

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 export default function EditForm({
     id,
@@ -44,8 +45,9 @@ export default function EditForm({
                 throw new Error("Failed to update topic");
             }
 
-            //router.refresh();
-            router.push("/projects");
+            router.refresh();
+            router.push("/projects", { scroll: false });
+            router.refresh();
         } catch (error) {
             console.log(error);
         }

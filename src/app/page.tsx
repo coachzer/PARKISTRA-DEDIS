@@ -26,16 +26,16 @@ export default async function Home() {
 
     const images: string[] = [
         // Add more images as needed
-        "/carousel3.jpg",
-        "/carousel2.jpg",
-        "/carousel1.jpg",
-        "/carousel4.jpg",
-        "/carousel5.jpg",
-        "/carousel6.jpg",
-        "/carousel7.jpg",
-        "/carousel8.jpg",
-        "/carousel9.jpg",
-        "/carousel10.jpg",
+        "/images/carousel3.jpg",
+        "/images/carousel2.jpg",
+        "/images/carousel1.jpg",
+        "/images/carousel4.jpg",
+        "/images/carousel5.jpg",
+        "/images/carousel6.jpg",
+        "/images/carousel7.jpg",
+        "/images/carousel8.jpg",
+        "/images/carousel9.jpg",
+        "/images/carousel10.jpg",
     ];
 
     // const projects = [

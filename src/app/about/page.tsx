@@ -8,13 +8,13 @@ import Image from "next/image";
 const AboutUs: React.FC = () => {
     return (
         <>
-            <Head>
+            {/* <Head>
                 <title>About Us | Park Istra</title>
                 <meta
                     name="description"
                     content="Learn more about Park Istra, a charity organization dedicated to supporting sustainable development in the beautiful inland of Istria."
                 />
-            </Head>
+            </Head> */}
             <div className="about-us-container bg-[#ECE3CE] p-8">
                 <h1 className="text-3xl font-bold mb-4">Welcome to Park Istra</h1>
                 <p className="text-gray-700 mb-6">

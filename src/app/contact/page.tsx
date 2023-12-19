@@ -1,6 +1,8 @@
 // components/Contact.tsx
 import React from "react";
 import Head from "next/head";
+import Image from "next/image";
+import ContactImage from "../../../public/images/contact.jpg";
 
 const Contact: React.FC = () => {
     return (
@@ -52,8 +54,8 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div className="flex-shrink-0">
-                    <img
-                        src="/contact.jpg"
+                    <Image
+                        src={ContactImage}
                         alt="Contact Image"
                         className="rounded-full w-52 h-52 object-cover"
                     />
