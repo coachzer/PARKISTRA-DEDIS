@@ -12,7 +12,7 @@ import bcrypt from "bcrypt";
 //   -  A user object, which indicates the credentials are valid.
 
 // next-auth gives us a signin page
-export const authOptions = {
+export default authOptions = {
     providers: [
         CredentialsProvider({
             name: "credentials", // " Sign in with 'creds' "
