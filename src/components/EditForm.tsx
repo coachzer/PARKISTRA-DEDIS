@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import FormSubmitButton from "./FormSubmitButton";
 
 export default function EditForm({
     id,
@@ -35,7 +34,7 @@ export default function EditForm({
             }
 
             router.refresh();
-            router.push("/");
+            router.push("/projects");
         } catch (error) {
             console.log(error);
         }
@@ -66,9 +65,6 @@ export default function EditForm({
                         <button className="bg-green-600 font-bold text-white py-3 px-6 w-fit">
                             Update Project
                         </button>
-                        <FormSubmitButton className="btn-block">
-                            Update Project (Different Component)
-                        </FormSubmitButton>
                     </form>
                 </div>
             </div>

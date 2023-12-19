@@ -1,30 +1,63 @@
+"use client";
+
 import EditForm from "@/components/EditForm";
 import { useState, useEffect } from "react";
 
 async function getProjectById(id: string) {
-
+    console.log(`Fetching project with id: ${id}`);
     try {
         const res = await fetch(`/api/auth/project/${id}`, {
             cache: "no-store",
         });
-
+        console.log(`Response status: ${res.status}`);
+        console.log(res);
         if (!res.ok) {
             throw new Error("Failed to fetch project");
         }
 
-        return res.json();
+        const project = await res.json();
+
+        return project;
     } catch (error) {
-        console.log(error);
+        console.error("Error fetching project:", error);
+        return { project: null };
     }
 }
 
-export default async function EditTopic(params: any) {
-    const { id } = params;
-    const { project } = await getProjectById(id);
-    if (!project) {
-        return <div>Project not found</div>;
-    }
-    const { name, description } = project;
+export default function EditTopic(params: any) {
+    // console.log("id: " + params.params.id);
+
+    const [projectData, setProjectData] = useState({
+        id: "",
+        name: "",
+        description: "",
+    });
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const id = params.params.id; // works for now
+            const project = await getProjectById(id);
+            const { name, description } = project;
+
+            console.log(project.projects);
+
+            if (!project) {
+                // Handle the case where the project is not found
+                console.error("Project not found");
+                return;
+            }
+
+            setProjectData({
+                id,
+                name: project.projects.name,
+                description: project.projects.description,
+            });
+        };
+
+        fetchData();
+    }, [params]); // Make sure to rerun the effect when params change
+
+    const { id, name, description } = projectData;
 
     return <EditForm id={id} name={name} description={description} />;
 }

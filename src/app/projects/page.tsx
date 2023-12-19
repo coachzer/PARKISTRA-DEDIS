@@ -19,7 +19,12 @@ export default async function ProjectsPage() {
                     <div key={project.id}>
                         <ProjectCard project={project} />
                         <RemoveBtn id={project.id} />
-                        <Link href={`/edit-project/${project.id}`}>
+                        <Link
+                            className="btn btn-success mx-2"
+                            href={{
+                                pathname: `/edit-project/${project.id}`,
+                            }}
+                        >
                             <HiPencilAlt size={24} />
                         </Link>
                     </div>

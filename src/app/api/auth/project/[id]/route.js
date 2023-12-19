@@ -45,11 +45,11 @@ export async function GET(request, { params }) {
     try {
         const { id } = params;
 
-        const topic = await prisma.project.findUnique({
-            where: { id: id },
+        const projects = await prisma.project.findUnique({
+            where: { id: String(id) },
         });
 
-        return NextResponse.json({ topic }, { status: 200 });
+        return NextResponse.json({ projects }, { status: 200 });
     } catch (error) {
         return NextResponse.json({ message: "Server Error" }, { status: 500 });
     } finally {
