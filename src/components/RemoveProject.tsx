@@ -20,7 +20,7 @@ export default function RemoveBtn({ id }: String | any) {
     };
 
     return (
-        <button onClick={removeTopic} className="btn btn-error">
+        <button onClick={removeTopic} className="btn btn-error my-2">
             <HiOutlineTrash size={24} />
         </button>
     );

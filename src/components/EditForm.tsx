@@ -12,9 +12,6 @@ export default function EditForm({
     name: string;
     description: string;
 }) {
-    // const [newName, setNewName] = useState(name);
-    // const [newDescription, setNewDescription] = useState(description);
-
     const [newName, setNewName] = useState("");
     const [newDescription, setNewDescription] = useState("");
 

@@ -2,6 +2,7 @@
 
 import { timeStamp } from "console";
 import Link from "next/link";
+import Image from "next/image";
 
 // import React from 'react';
 // import Photo from '@/components/Photo';
@@ -519,9 +520,11 @@ export default async function Instagram() {
                     images.map((image: any) => (
                         <div key={image.id} className="text-center ">
                             <Link href={image.permalink}>
-                                <img
+                                <Image
                                     src={image.media_url}
                                     alt={image.caption}
+                                    width={300}
+                                    height={300}
                                     className="rounded-2xl border-black border-2"
                                 />
                                 <p className="text-lg">{image.caption}</p>

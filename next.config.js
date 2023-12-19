@@ -10,6 +10,10 @@ const nextConfig = {
                 protocol: "https",
                 hostname: "cdna.artstation.com",
             },
+            {
+                protocol: "https",
+                hostname: "scontent-vie1-1.cdninstagram.com",
+            },
         ],
     },
 };
