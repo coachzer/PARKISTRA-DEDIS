@@ -507,7 +507,7 @@ import Image from "next/image";
 
 // export default GalleryPage;
 export default async function Instagram() {
-    const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalink,comment_count&access_token=IGQWRQWVVjY1F6WmdXZAHNOdk03aEhQVUhnVWdCQUl2VzRMaDgwdkRHZA3NlQS1zOGJUVnZAoZAG5BZAS05ZAWRwMmtDX1FiLWhsUU9tTVY0N0UtZAFB4V19TT3J1aDRLOUFBMnNCTWJIcU1aWDhBUmZAfVnh5NUFKc0VOQWsZD`; //${process.env.INSTAGRAM_KEY}
+    const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalink,comment_count&access_token=IGQWRPTUVKWmdyRGlldzQyRklpMTBrV25veXBQVnVsYU0zcVZAOMExoZAl9scWt5VWpGTmF5cTFlSDNXNFhCME84aUVRSFZA1ZAnc0ZA2ZApa2w0MlplcTZAtN3NnVDdPZAXdiOHJxMzZAKYmEwbWNNOXhGa3ZAXRWpCWC1GZA1UZD`; //${process.env.INSTAGRAM_KEY}
     const data = await fetch(url);
     const feed = await data.json();
     //console.log(feed);
