@@ -519,15 +519,22 @@ export default async function Instagram() {
                 images.map((image: any) => (
                     <div key={image.id} className="text-center">
                         <Link href={image.permalink}>
+                            {/* when its not hovered
+                            show smaller picture
+                            and trimmed caption
+
+                            on hover, show zoomed in picture
+                            and a full caption */}
+
                             <Image
                                 src={image.media_url}
                                 alt={image.caption}
-                                width={300}
-                                height={400}
-                                className="rounded-2xl border-black border-2 shadow-lg hover:shadow-xl transition duration-250 ease-in-out  transform hover:-translate-y-1 hover:scale-110"
+                                width={400}
+                                height={300}
+                                className="rounded-2xl border-black border-2 shadow-lg hover:shadow-xl transition duration-250 ease-in-out  transform hover:-translate-y-1 hover:scale-105"
                             />
-                            <p className="text-lg">{image.caption}</p>
-                            <p className="text-xs">
+                            <p className="text-lg whitespace-normal max-w-xs">{image.caption}</p>
+                            <p className="text-xs ">
                                 {image.timestamp.substring(0, 19).replace("T", " ")}
                             </p>
                         </Link>
