@@ -21,7 +21,11 @@ const nextConfig = {
                 port: "",
             },
         ],
-        domains: ["scontent.cdninstagram.com", "graph.instagram.com"],
+        domains: [
+            "scontent.cdninstagram.com",
+            "graph.instagram.com",
+            "scontent-iad3-2.cdninstagram.com",
+        ],
     },
 };
 
