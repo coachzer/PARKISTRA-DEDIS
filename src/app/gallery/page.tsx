@@ -532,11 +532,13 @@ export default async function Instagram() {
                                 width={300}
                                 height={300}
                                 className="rounded-2xl border-black border-2 shadow-lg hover:shadow-xl transition duration-250 ease-in-out  transform hover:-translate-y-1 hover:scale-105"
+                                placeholder="blur" // Use a blurred version of the image as a placeholder
+                                blurDataURL={image.media_url}
                             />
-                            {/* <p className="text-lg whitespace-normal max-w-xs">{image.caption}</p> */}
+                            {/* <p className="text-lg whitespace-normal max-w-xs">{image.caption}</p>
                             <p className="text-xs ">
                                 {image.timestamp.substring(0, 19).replace("T", " ")}
-                            </p>
+                            </p> */}
                         </Link>
                     </div>
                 ))}
