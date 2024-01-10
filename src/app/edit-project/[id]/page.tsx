@@ -1,5 +1,3 @@
-"use client";
-
 import EditForm from "@/components/EditForm";
 import { useState, useEffect } from "react";
 
