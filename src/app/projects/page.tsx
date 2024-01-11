@@ -1,16 +1,39 @@
+"use client";
 import ProjectCard from "@/components/ProjectCard";
 import RemoveBtn from "@/components/RemoveProject";
 import prisma from "@/lib/db/prisma";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { HiPencilAlt } from "react-icons/hi";
 
-export default async function ProjectsPage() {
-    const projects = await prisma.project.findMany({
-        orderBy: {
-            id: "desc",
-        },
-    });
+interface Project {
+    id: string;
+    name: string;
+    description: string;
+    imageUrl: string;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
+export default function ProjectsPage() {
+    const [projects, setProjects] = useState<Project[]>([]);
+    //const [isLoading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchProjects = async () => {
+            const response = await fetch("/api/auth/project");
+            const data = await response.json();
+            //console.log(data.projects);
+            setProjects(data.projects);
+            //setLoading(false);
+        };
+
+        fetchProjects();
+    }, []);
+    //console.log(projects);
+
+    //if (isLoading) return <p>Loading...</p>;
+    if (!projects.length) return <p>No projects.</p>;
 
     return (
         <div>

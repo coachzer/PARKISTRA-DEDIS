@@ -20,12 +20,16 @@ const nextConfig = {
                 hostname: "scontent.cdninstagram.com",
                 port: "",
             },
-        ],
-        domains: [
-            "scontent.cdninstagram.com",
-            "graph.instagram.com",
-            "scontent-iad3-2.cdninstagram.com",
-            "scontent-iad3-1.cdninstagram.com",
+            {
+                protocol: "https",
+                hostname: "scontent-iad3-2.cdninstagram.com",
+                port: "",
+            },
+            {
+                protocol: "https",
+                hostname: "scontent-iad3-1.cdninstagram.com",
+                port: "",
+            },
         ],
     },
 };

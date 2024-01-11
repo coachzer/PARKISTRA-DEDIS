@@ -1,14 +1,15 @@
+"use client";
+
 import EditForm from "@/components/EditForm";
+import next from "next";
 import { useState, useEffect } from "react";
 
 async function getProjectById(id: string) {
-    console.log(`Fetching project with id: ${id}`);
+    // console.log(`Fetching project with id: ${id}`);
     try {
-        const res = await fetch(`/api/auth/project/${id}`, {
-            cache: "no-store",
-        });
-        console.log(`Response status: ${res.status}`);
-        console.log(res);
+        const res = await fetch(`/api/auth/project/${id}`);
+        // console.log(`Response status: ${res.status}`);
+        // console.log(res);
         if (!res.ok) {
             throw new Error("Failed to fetch project");
         }
