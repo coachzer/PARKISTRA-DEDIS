@@ -99,28 +99,37 @@ export default function Home() {
             <div>
                 <div className="hero rounded-xl bg-blue-200">
                     <div className="hero-content flex-col lg:flex-row">
-                        <Image
-                            src={projects[0].imageUrl}
-                            alt={projects[0].name}
-                            width={400}
-                            height={800}
-                            className="w-full max-w-sm rounded-lg shadow-2xl"
-                            priority
-                        />
-                        <div>
-                            <h1 className="text-5xl font-bold">{projects[0].name}</h1>
-                            <p className="py-6">{projects[0].description}</p>
-                            <Link href={"/projects/" + projects[0].id} className="btn btn-primary">
-                                Check it out ❤️
-                            </Link>
-                        </div>
+                        {projects[0] && (
+                            <Image
+                                src={projects[0].imageUrl}
+                                alt={projects[0].name}
+                                width={400}
+                                height={800}
+                                className="w-full max-w-sm rounded-lg shadow-2xl"
+                                priority
+                            />
+                        )}
+                        {projects[0] && (
+                            <div>
+                                <h1 className="text-5xl font-bold">{projects[0].name}</h1>
+                                <p className="py-6">{projects[0].description}</p>
+                                <Link
+                                    href={"/projects/" + projects[0].id}
+                                    className="btn btn-primary"
+                                >
+                                    Check it out ❤️
+                                </Link>
+                            </div>
+                        )}
                     </div>
                 </div>
-                <div className="my-4 px-4 gap-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-                    {projects.slice(1).map((project) => (
-                        <ProjectCard key={project.id} project={project} />
-                    ))}
-                </div>
+                {projects && (
+                    <div className="my-4 px-4 gap-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+                        {projects.slice(1).map((project) => (
+                            <ProjectCard key={project.id} project={project} />
+                        ))}
+                    </div>
+                )}
             </div>
             {/* <div className="container mx-auto mt-8">
                 {projects.map((project, index) => (

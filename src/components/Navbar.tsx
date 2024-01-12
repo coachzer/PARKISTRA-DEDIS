@@ -63,7 +63,7 @@ export default function Navbar() {
     // const { data, status } = useSession();
 
     return (
-        <nav style={{ position: "sticky", zIndex: 1000, width: "100%" }}>
+        <nav style={{ zIndex: 1000, width: "100%" }}>
             <div className="flex justify-between items-center w-full h-20 px-4 text-white bg-[#ECE3CE] nav">
                 <div>
                     {/* <h1 className="text-5xl font-signature ml-2"><a className="link-underline hover:transition ease-in-out delay-150 hover:underline hover:decoration-solid" href="">Logo</a></h1> */}

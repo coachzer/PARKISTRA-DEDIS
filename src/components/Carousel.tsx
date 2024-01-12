@@ -1,8 +1,9 @@
 "use client";
 // components/Carousel.tsx
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import styles from "./Carousel.module.css"; // Import your CSS module
+import Image from "next/image";
 
 interface CarouselProps {
     images: string[];
@@ -11,9 +12,9 @@ interface CarouselProps {
 const Carousel: React.FC<CarouselProps> = ({ images }) => {
     const [activeIndex, setActiveIndex] = useState(0);
 
-    const nextImage = () => {
+    const nextImage = useCallback(() => {
         setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
-    };
+    }, [setActiveIndex, images]);
 
     const prevImage = () => {
         setActiveIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
@@ -25,14 +26,16 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
         }, 5000);
 
         return () => clearInterval(intervalId);
-    }, [activeIndex]);
+    }, [activeIndex, nextImage]);
 
     return (
         <div className="flex overflow-hidden w-full h-full relative">
             {images.map((image, index) => (
-                <img
+                <Image
                     key={index}
                     src={image}
+                    height={1280}
+                    width={1920}
                     alt={`Image ${index + 1}`}
                     className={`w-full h-[32rem] object-cover ${
                         index === activeIndex ? styles.active : styles.inactive

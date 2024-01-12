@@ -30,7 +30,8 @@
         "src/app/api/auth/project/route.js",
         ".next/types/**/*.ts",
         "src/app/helpers/authOptions.ts",
-        "src/app/projects/page.tsx"
+        "src/app/projects/page.tsx",
+        "src/app/gallery/page.tsx"
     ],
     "exclude": ["node_modules"]
 }
