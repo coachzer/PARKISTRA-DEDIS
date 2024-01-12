@@ -42,7 +42,7 @@ const AboutUs: React.FC = () => {
         <h2 className="text-3xl font-bold mb-4 text-gray-800">Awards and Recognition</h2>
         <p className="text-gray-700 mb-6">
           Our commitment to excellence has not gone unnoticed. In 2021, one of Park
-          Istra's projects received a nomination for the prestigious Salto Award,
+          Istra`&apos;`s projects received a nomination for the prestigious Salto Award,
           recognizing it as one of the top five volunteering projects in Europe. In 2019,
           Petra Matos, the founder of Park Istra, was honored with a national award for
           outstanding achievements in volunteering. Furthermore, in 2017, Park Istra was
