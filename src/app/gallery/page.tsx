@@ -53,7 +53,7 @@ const Instagram: React.FC = () => {
         if (currentImage?.children?.data && currentImage.children.data.length > 0) {
             return (
                 <div>
-                    <div className="max-w-[85%] mx-auto flex justify-content-center ">
+                    <div className="max-w-[80%] mx-auto flex justify-content-center ">
                         <Carousel
                             showArrows={true}
                             showStatus={false}
@@ -84,7 +84,7 @@ const Instagram: React.FC = () => {
         if (currentImage) {
             return (
                 <div>
-                    <div className="max-w-[85%] mx-auto flex justify-content-center">
+                    <div className="max-w-[80%] mx-auto flex justify-content-center">
                        
                             <img src={currentImage.media_url} alt={currentImage.caption} className="rounded-2xl" />
                             
