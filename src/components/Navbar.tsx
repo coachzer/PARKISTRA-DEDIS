@@ -48,6 +48,11 @@ export default function Navbar() {
             link: "ADD PROJECT",
             href: "/add-project",
         },
+        {
+            id: 8,
+            link: "LOGIN",
+            href: "/api/auth/signin",
+        }
     ];
 
     // const router = useRouter();

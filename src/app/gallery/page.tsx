@@ -23,7 +23,7 @@ const Instagram: React.FC = () => {
     const [images, setImages] = useState<ImageData[]>([]);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [currentImage, setCurrentImage] = useState<ImageData | null>(null);
-
+    const timestampCorrect = currentImage?.timestamp?.replace("T", " ").replace("+0000", "");
     useEffect(() => {
         const fetchImages = async () => {
             Modal.setAppElement("body");
@@ -33,6 +33,8 @@ const Instagram: React.FC = () => {
             const data = await response.json();
             console.log(data);
             setImages(data.data);
+            
+            
         };
 
         fetchImages();
@@ -50,25 +52,28 @@ const Instagram: React.FC = () => {
     const displayCarousel = () => {
         if (currentImage?.children?.data && currentImage.children.data.length > 0) {
             return (
-                <div className="max-w-[85%] mx-auto flex justify-content-center">
-                    <Carousel
-                        showArrows={true}
-                        showStatus={false}
-                        autoPlay={true}
-                        interval={1000}
-                        thumbWidth={100}
-                        infiniteLoop={true}
-                        showThumbs={false}
-                    >
-                        {currentImage.children.data.map((carouselImage, index) => (
-                            <div key={index}>
-                                <img src={carouselImage.media_url} alt={`carousel-${index}`} />
-                                {currentImage.caption && (
-                                    <p className="legend">{currentImage.caption}</p>
-                                )}
-                            </div>
-                        ))}
-                    </Carousel>
+                <div>
+                    <div className="max-w-[85%] mx-auto flex justify-content-center ">
+                        <Carousel
+                            showArrows={true}
+                            showStatus={false}
+                            autoPlay={true}
+                            interval={4000}
+                            thumbWidth={100}
+                            infiniteLoop={true}
+                            showThumbs={false}
+                        >
+                            {currentImage.children.data.map((carouselImage, index) => (
+                                <div key={index}>
+                                    <img
+                                        src={carouselImage.media_url}
+                                        className="rounded-2xl"
+                                        alt={`carousel-${index}`}
+                                    />
+                                </div>
+                            ))}
+                        </Carousel>
+                    </div>
                 </div>
             );
         }
@@ -78,11 +83,12 @@ const Instagram: React.FC = () => {
     const displaySingleImage = () => {
         if (currentImage) {
             return (
-                <div className="max-w-[85%] mx-auto flex justify-content-center">
-                    <Carousel showThumbs={false} showIndicators={false} showStatus={false}>
-                        <img src={currentImage.media_url} alt={currentImage.caption} />
-                        {currentImage.caption && <p className="legend">{currentImage.caption}</p>}
-                    </Carousel>
+                <div>
+                    <div className="max-w-[85%] mx-auto flex justify-content-center">
+                       
+                            <img src={currentImage.media_url} alt={currentImage.caption} className="rounded-2xl" />
+                            
+                    </div>
                 </div>
             );
         }
@@ -116,38 +122,43 @@ const Instagram: React.FC = () => {
                 style={{
                     overlay: {
                         position: "fixed",
+                        display: "flex",
+                        alignItems: "center",
                         top: 0,
                         left: 0,
                         right: 0,
                         bottom: 0,
-                        backgroundColor: "rgba(255, 255, 255, 0.0)",
+                        backgroundColor: "rgba(255, 255, 255, 0.5)",
                     },
                     content: {
                         position: "absolute",
                         display: "flex",
                         alignItems: "center",
-                        top: "5%",
-                        left: "30%",
-                        right: "30%",
-                        bottom: "5%",
-                        backgroundColor: "rgba(255, 255, 255, 0.1)",
-                        boxShadow: "0 0 10px rgba(0, 0, 0, 0.25)",
+                        margin: "0% 25%",
+                        top: "1%",
+                        bottom: "1%",
+                        backgroundColor: "rgba(255, 255, 255, 0)",
+                        // boxShadow: "0 0 10px rgba(0, 0, 0, 0.9)",
                         overflow: "auto",
-                        WebkitOverflowScrolling: "touch",
-                        borderRadius: "4px",
+                        border: "none",
                         outline: "none",
-                        padding: "20px",
                     },
                 }}
             >
                 {currentImage && (
                     <div>
-                        <button onClick={closeModal} className="ml-2 text-4xl">
+                        <div>
+                            {/*  <button onClick={closeModal} className="ml-2 text-4xl">
                             ×
-                        </button>
-                        {currentImage.media_type === "CAROUSEL_ALBUM"
-                            ? displayCarousel()
-                            : displaySingleImage()}
+                        </button> */}
+                            {currentImage.media_type === "CAROUSEL_ALBUM"
+                                ? displayCarousel()
+                                : displaySingleImage()}
+                        </div>
+                        <div className="mt-2 bg-[rgb(189,197,193,0.9)] max-w-[65%] mx-auto rounded-xl">
+                            <p className="text-center">{currentImage.caption}</p>
+                            <p className="text-center ">{timestampCorrect}</p>
+                        </div>
                     </div>
                 )}
             </Modal>

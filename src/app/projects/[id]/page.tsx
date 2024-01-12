@@ -40,20 +40,29 @@ export default async function ProjectPage({ params: { id } }: ProjectPageProps) 
     const project = await getProject(id);
 
     return (
-        <div className="flex flex-col lg:flex-row gap-4 lg:items-center">
-            <Image
-                src={project.imageUrl}
-                alt={project.name}
-                width={500}
-                height={500}
-                className="rounded-lg"
-                priority
-            />
+        <main className="bg-[#ECE3CE]">
+            <div className="contact-container bg-gray-100 p-8 rounded-md shadow-md max-w-4xl mx-auto items-center mt-11">
+                <div className="text-center mb-8">
+                    <h1 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-800">
+                        {project.name}
+                    </h1>
+                    <div className="mb-6">
+                        <h2 className="text-2xl font-bold mb-2 text-gray-700">Description</h2>
+                        <p className="text-gray-700">{project.description}</p>
+                    </div>
+                </div>
 
-            <div>
-                <h1 className="text-5xl font-bold">{project.name}</h1>
-                <p className="py-6">{project.description}</p>
+                {/* Added margin and order to adjust the layout */}
+                <div className="mx-auto mb-4">
+                    <Image
+                        src={project.imageUrl}
+                        alt={project.name}
+                        width={1000} // Adjusted image width
+                        height={600} // Adjusted image height
+                        className="rounded-xl object-cover"
+                    />
+                </div>
             </div>
-        </div>
+        </main>
     );
 }
