@@ -80,12 +80,8 @@ const Instagram: React.FC = () => {
             return (
                 <div className="max-w-[85%] mx-auto flex justify-content-center">
                     <Carousel showThumbs={false} showIndicators={false} showStatus={false}>
-                        <div key={currentImage.id}>
-                            <img src={currentImage.media_url} alt={currentImage.caption} />
-                            {currentImage.caption && (
-                                <p className="legend">{currentImage.caption}</p>
-                            )}
-                        </div>
+                        <img src={currentImage.media_url} alt={currentImage.caption} />
+                        {currentImage.caption && <p className="legend">{currentImage.caption}</p>}
                     </Carousel>
                 </div>
             );
@@ -106,7 +102,7 @@ const Instagram: React.FC = () => {
                                     alt={image.caption}
                                     width={400}
                                     height={300}
-                                    className="rounded-2xl shadow-lg hover:shadow-xl transition duration-250 overflow-hidden"
+                                    className="rounded-2xl shadow-lg hover:shadow-xl transition duration-250 ease-in-out  transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
                                 />
                             </div>
                         </div>
