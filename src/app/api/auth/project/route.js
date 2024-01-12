@@ -8,7 +8,7 @@ export async function GET() {
         const projects = await prisma.project.findMany();
         return NextResponse.json({ projects }, { status: 200 });
     } catch (error) {
-        return NextResponse.json({ message: "Server Error" }, { status: 500 });
+        return NextResponse.json({ message: "Internal Server Error - GET" }, { status: 500 });
     } finally {
         await prisma.$disconnect();
     }
@@ -19,9 +19,9 @@ export async function POST(request) {
         const { name, description } = await request.json();
         await connectToDatabase();
         const project = await prisma.project.create({ data: { name, description } });
-        return NextResponse.json({ message: "Topic Created" }, { status: 201 });
+        return NextResponse.json({ message: "Project created" }, { status: 201 });
     } catch (error) {
-        return NextResponse.json({ message: "Server Error" }, { status: 500 });
+        return NextResponse.json({ message: "Internal Server Error - POST" }, { status: 500 });
     } finally {
         await prisma.$disconnect();
     }

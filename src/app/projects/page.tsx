@@ -1,7 +1,6 @@
 "use client";
 import ProjectCard from "@/components/ProjectCard";
 import RemoveBtn from "@/components/RemoveProject";
-import prisma from "@/lib/db/prisma";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { HiPencilAlt } from "react-icons/hi";
@@ -32,8 +31,8 @@ export default function ProjectsPage() {
     }, []);
     //console.log(projects);
 
-    //if (isLoading) return <p>Loading...</p>;
-    if (!projects.length) return <p>No projects.</p>;
+    // if (isLoading) return <p>Loading...</p>;
+    // if (!projects.length) return <p>No projects.</p>;
 
     return (
         <div>
