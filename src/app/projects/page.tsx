@@ -36,7 +36,7 @@ export default function ProjectsPage() {
     // if (!projects.length) return <p>No projects.</p>;
 
     return (
-        <div>
+        <div className="max-w-screen-lg mx-auto">
             <div className="my-4 px-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                 {projects.map((project) => (
                     <div key={project.id}>

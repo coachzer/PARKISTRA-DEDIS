@@ -9,7 +9,7 @@ import Image from "next/image";
 const Carousel: React.FC = () => {
     return (
         <>
-            <div className="carousel mx-auto max-w-screen-xl flex justify-items-center">
+            <div className="carousel mx-auto max-w-screen-xl flex justify-items-center rounded-lg">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img
                         src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"

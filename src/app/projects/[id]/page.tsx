@@ -41,14 +41,14 @@ export default async function ProjectPage({ params: { id } }: ProjectPageProps) 
 
     return (
         <main className="bg-[#ECE3CE]">
-            <div className="contact-container bg-gray-100 p-8 rounded-md shadow-md max-w-4xl mx-auto items-center mt-11">
-                <div className="text-center mb-8">
+            <div className="max-w-screen-lg mx-auto items-center mt-11">
+                <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
                     <h1 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-800">
                         {project.name}
                     </h1>
-                    <div className="mb-6">
+                    <div>
                         <h2 className="text-2xl font-bold mb-2 text-gray-700">Description</h2>
-                        <p className="text-gray-700">{project.description}</p>
+                        <p className="text-gray-700 text-lg">{project.description}</p>
                     </div>
                 </div>
 
