@@ -10,7 +10,7 @@ export const authOptions: NextAuthOptions = {
             name: "credentials", // " Sign in with 'creds' "
             credentials: {
                 email: { label: "Email", placeholder: "Enter Email: " },
-                password: { label: "Password", placeholder: "Enter Password: " },
+                password: { label: "Password", placeholder: "Enter Password: ", type: "password" },
             },
             async authorize(credentials) {
                 if (!credentials || !credentials.email || !credentials.password) {

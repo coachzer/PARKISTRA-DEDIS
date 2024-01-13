@@ -5,60 +5,69 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import styles from "./Carousel.module.css"; // Import your CSS module
 import Image from "next/image";
 
-interface CarouselProps {
-    images: string[];
-}
 
-const Carousel: React.FC<CarouselProps> = ({ images }) => {
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    const nextImage = useCallback(() => {
-        setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, [setActiveIndex, images]);
-
-    const prevImage = () => {
-        setActiveIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-    };
-
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            nextImage();
-        }, 5000);
-
-        return () => clearInterval(intervalId);
-    }, [activeIndex, nextImage]);
-
+const Carousel: React.FC = () => {
     return (
-        <div className="flex overflow-hidden w-full h-full relative">
-            {images.map((image, index) => (
-                <Image
-                    key={index}
-                    src={image}
-                    height={1280}
-                    width={1920}
-                    alt={`Image ${index + 1}`}
-                    className={`w-full h-[32rem] object-cover ${
-                        index === activeIndex ? styles.active : styles.inactive
-                    }`}
-                />
-            ))}
-            <h1 className="absolute bottom-5 left-5 text-[#ECE3CE] text-4xl font-bold bg-black p-2 bg-opacity-30">
-                Parkistra, brings hero in you!
-            </h1>
-
-            <button
-                className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded cursor-pointer transition-bg duration-300 hover:bg-opacity-75"
-                onClick={prevImage}
-            >
-                <FaArrowLeft size={24} />
-            </button>
-            <button
-                className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded cursor-pointer transition-bg duration-300 hover:bg-opacity-75"
-                onClick={nextImage}
-            >
-                <FaArrowRight size={24} />
-            </button>
-        </div>
+        <>
+            <div className="carousel mx-auto max-w-screen-xl flex justify-items-center">
+                <div id="slide1" className="carousel-item relative w-full">
+                    <img
+                        src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
+                        className=""
+                    />
+                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide4" className="btn btn-square">
+                            ❮
+                        </a>
+                        <a href="#slide2" className="btn btn-square">
+                            ❯
+                        </a>
+                    </div>
+                </div>
+                <div id="slide2" className="carousel-item relative w-full">
+                    <img
+                        src="https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
+                        className=""
+                    />
+                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide1" className="btn btn-square">
+                            ❮
+                        </a>
+                        <a href="#slide3" className="btn btn-square">
+                            ❯
+                        </a>
+                    </div>
+                </div>
+                <div id="slide3" className="carousel-item relative w-full">
+                    <img
+                        src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg"
+                        className="w-full"
+                    />
+                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide2" className="btn btn-square">
+                            ❮
+                        </a>
+                        <a href="#slide4" className="btn btn-square">
+                            ❯
+                        </a>
+                    </div>
+                </div>
+                <div id="slide4" className="carousel-item relative w-full">
+                    <img
+                        src="https://daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"
+                        className="w-full"
+                    />
+                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide3" className="btn btn-square">
+                            ❮
+                        </a>
+                        <a href="#slide1" className="btn btn-square">
+                            ❯
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </>
     );
 };
 

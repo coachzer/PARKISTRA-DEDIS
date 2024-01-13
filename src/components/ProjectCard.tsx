@@ -30,7 +30,7 @@ export default function ProjectCard({ project }: ProjectProps) {
                 <div className="card-body">
                     <h2 className="card-title">{project.name}</h2>
                     {isNew && <div className="badge badge-secondary">RECENT</div>}
-                    <p>{project.description}</p>
+                    {/* <p>{project.description}</p> */}
                 </div>
             </Link>
             {/* <div className="card-actions justify-end">

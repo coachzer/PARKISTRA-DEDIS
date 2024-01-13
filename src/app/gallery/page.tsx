@@ -24,7 +24,6 @@ const Instagram: React.FC = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [currentImage, setCurrentImage] = useState<ImageData | null>(null);
     const timestampCorrect = currentImage?.timestamp?.replace("T", " ").replace("+0000", "");
-    let a = process.env.INSTAGRAM_KEY;
     useEffect(() => {
         const fetchImages = async () => {
             Modal.setAppElement("body");
@@ -103,7 +102,7 @@ const Instagram: React.FC = () => {
                     .filter((image) => image.media_type !== "VIDEO" && image.media_type !== "IGTV")
                     .map((image) => (
                         <div key={image.id} className="grid items-center">
-                            <div onClick={() => openModal(image)} > 
+                            <div onClick={() => openModal(image)}>
                                 <Image
                                     src={image.media_url}
                                     alt={image.caption}

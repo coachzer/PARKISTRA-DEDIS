@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import AuthProvider from "@/components/AuthProvider";
 import { SessionProvider } from "next-auth/react";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <main className="bg-[#ECE3CE]">
                     <AuthProvider>
                         <Navbar />
-                        {children}
+                        <div className="flex flex-col min-h-[100vh]">
+                            <div style={{ flex: "1 0 auto" }}>{children}</div>
+                            <Footer />
+                        </div>
                     </AuthProvider>
                 </main>
             </body>
