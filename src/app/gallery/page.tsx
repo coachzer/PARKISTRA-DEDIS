@@ -155,9 +155,9 @@ const Instagram: React.FC = () => {
                                 ? displayCarousel()
                                 : displaySingleImage()}
                         </div>
-                        <div className="mt-2 bg-[rgb(189,197,193,0.9)] max-w-[65%] mx-auto rounded-xl">
-                            <p className="text-center">{currentImage.caption}</p>
-                            <p className="text-center ">{timestampCorrect}</p>
+                        <div className="mt-2 bg-[rgb(1,1,1,0.9)] max-w-[65%] mx-auto rounded-xl text-white text-center">
+                            <p>{currentImage.caption}</p>
+                            <p>{timestampCorrect}</p>
                         </div>
                     </div>
                 )}

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import AuthProvider from "@/components/AuthProvider";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +20,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     
                 </main> */}
                 <main className="bg-[#ECE3CE]">
-                    <Navbar />
-                    <AuthProvider>{children}</AuthProvider>
+                    <AuthProvider>
+                        <Navbar />
+                        {children}
+                    </AuthProvider>
                 </main>
             </body>
         </html>

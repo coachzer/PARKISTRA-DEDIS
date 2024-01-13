@@ -96,8 +96,8 @@ export default function Home() {
             <div>
                 <Carousel images={images} />
             </div>
-            <div>
-                <div className="hero rounded-xl bg-blue-200">
+            <div className="">
+                <div className="hero my-4 px-4  rounded-xl bg-blue-200">
                     <div className="hero-content flex-col lg:flex-row">
                         {projects[0] && (
                             <Image

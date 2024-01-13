@@ -1,9 +1,8 @@
 "use client";
 
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../../public/images/logoGreen.png";
@@ -11,6 +10,8 @@ import Logo from "../../public/images/logoGreen.png";
 // Bottom Navbar
 export default function Navbar() {
     const [nav, setNav] = useState(false);
+
+    const { data: session, status } = useSession();
 
     const links = [
         {
@@ -47,12 +48,13 @@ export default function Navbar() {
             id: 7,
             link: "ADD PROJECT",
             href: "/add-project",
+            requiresAuth: true, // Add this property to links that require authentication
         },
         {
             id: 8,
-            link: "LOGIN",
-            href: "/api/auth/signin",
-        }
+            link: session ? "LOGOUT" : "LOGIN",
+            href: session ? "/api/auth/signout" : "/api/auth/signin",
+        },
     ];
 
     // const router = useRouter();
@@ -64,8 +66,6 @@ export default function Navbar() {
     // const loginHandler = async () => {
     //     router.push("/api/auth/signin");
     // };
-
-    // const { data, status } = useSession();
 
     return (
         <nav style={{ zIndex: 1000, width: "100%" }}>
@@ -87,14 +87,16 @@ export default function Navbar() {
                 </div>
                 <div className="content-center m-auto">
                     <ul className="hidden md:flex">
-                        {links.map(({ id, link, href }) => (
-                            <li
-                                key={id}
-                                className="nav-links px-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 hover:text-white duration-200 link-underline"
-                            >
-                                <Link href={href}>{link}</Link>
-                                {/* <div>{JSON.stringify(data)}</div> */}
-                                {/* <div>
+                        {links.map(
+                            (link) =>
+                                (!link.requiresAuth || session) && (
+                                    <li
+                                        key={link.id}
+                                        className="nav-links px-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 hover:text-white duration-200 link-underline"
+                                    >
+                                        <Link href={link.href}>{link.link}</Link>
+                                        {/* <div>{JSON.stringify(data)}</div> */}
+                                        {/* <div>
                                     {status === "unauthenticated" && (
                                         <button onClick={loginHandler}>LOGIN</button>
                                     )}
@@ -104,8 +106,9 @@ export default function Navbar() {
                                         <button onClick={logoutHandler}>LOGOUT</button>
                                     )}
                                 </div> */}
-                            </li>
-                        ))}
+                                    </li>
+                                )
+                        )}
                     </ul>
                 </div>
 
@@ -118,13 +121,19 @@ export default function Navbar() {
 
                 {nav && (
                     <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-[#ECE3CE] to-[#3A4D39] text-gray-500">
-                        {links.map(({ id, link, href }) => (
-                            <li key={id} className="px-4 cursor-pointer capitalize py-6 text-4xl">
-                                <Link onClick={() => setNav(!nav)} href={href}>
-                                    {link}
-                                </Link>
-                            </li>
-                        ))}
+                        {links.map(
+                            (link) =>
+                                (!link.requiresAuth || session) && (
+                                    <li
+                                        key={link.id}
+                                        className="px-4 cursor-pointer capitalize py-6 text-4xl"
+                                    >
+                                        <Link onClick={() => setNav(!nav)} href={link.href}>
+                                            {link.link}
+                                        </Link>
+                                    </li>
+                                )
+                        )}
                     </ul>
                 )}
             </div>

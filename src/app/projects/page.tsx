@@ -1,6 +1,7 @@
 "use client";
 import ProjectCard from "@/components/ProjectCard";
 import RemoveBtn from "@/components/RemoveProject";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { HiPencilAlt } from "react-icons/hi";
@@ -17,7 +18,7 @@ interface Project {
 export default function ProjectsPage() {
     const [projects, setProjects] = useState<Project[]>([]);
     //const [isLoading, setLoading] = useState(true);
-
+    const { data: session } = useSession();
     useEffect(() => {
         const fetchProjects = async () => {
             const response = await fetch("/api/auth/project");
@@ -40,15 +41,19 @@ export default function ProjectsPage() {
                 {projects.map((project) => (
                     <div key={project.id}>
                         <ProjectCard project={project} />
-                        <RemoveBtn id={project.id} />
-                        <Link
-                            className="btn btn-success mx-2"
-                            href={{
-                                pathname: `/edit-project/${project.id}`,
-                            }}
-                        >
-                            <HiPencilAlt size={24} />
-                        </Link>
+                        {session && (
+                            <>
+                                <RemoveBtn id={project.id} />
+                                <Link
+                                    className="btn btn-success mx-2"
+                                    href={{
+                                        pathname: `/edit-project/${project.id}`,
+                                    }}
+                                >
+                                    <HiPencilAlt size={24} />
+                                </Link>
+                            </>
+                        )}
                     </div>
                 ))}
             </div>

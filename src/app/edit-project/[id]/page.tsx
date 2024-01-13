@@ -2,6 +2,8 @@
 
 import EditForm from "@/components/EditForm";
 import next from "next";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
 async function getProjectById(id: string) {
@@ -31,6 +33,16 @@ export default function EditTopic(params: any) {
         name: "",
         description: "",
     });
+
+    const { data: session } = useSession();
+
+    const router = useRouter();
+
+    useEffect(() => {
+        if (!session) {
+            router.push("/api/auth/signin");
+        }
+    }, [session, router]);
 
     useEffect(() => {
         const fetchData = async () => {
