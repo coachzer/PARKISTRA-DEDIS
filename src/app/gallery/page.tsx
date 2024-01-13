@@ -97,13 +97,13 @@ const Instagram: React.FC = () => {
     };
 
     return (
-        <div className="gap-4 grid grid-cols-1 md:grid-cols-4 justify-items-center p-4">
+        <div className="gap-4 grid grid-cols-1 md:grid-cols-4 justify-items-center p-4 align-middle">
             {images &&
                 images
                     .filter((image) => image.media_type !== "VIDEO" && image.media_type !== "IGTV")
                     .map((image) => (
-                        <div key={image.id}>
-                            <div onClick={() => openModal(image)}>
+                        <div key={image.id} className="grid items-center">
+                            <div onClick={() => openModal(image)} > 
                                 <Image
                                     src={image.media_url}
                                     alt={image.caption}
