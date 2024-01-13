@@ -24,17 +24,16 @@ const Instagram: React.FC = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [currentImage, setCurrentImage] = useState<ImageData | null>(null);
     const timestampCorrect = currentImage?.timestamp?.replace("T", " ").replace("+0000", "");
+    let a = process.env.INSTAGRAM_KEY;
     useEffect(() => {
         const fetchImages = async () => {
             Modal.setAppElement("body");
 
-            const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,children{media_url},timestamp,media_type,permalink,comment_count&access_token=IGQWRPTUVKWmdyRGlldzQyRklpMTBrV25veXBQVnVsYU0zcVZAOMExoZAl9scWt5VWpGTmF5cTFlSDNXNFhCME84aUVRSFZA1ZAnc0ZA2ZApa2w0MlplcTZAtN3NnVDdPZAXdiOHJxMzZAKYmEwbWNNOXhGa3ZAXRWpCWC1GZA1UZD`; //${process.env.INSTAGRAM_KEY}
+            const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,children{media_url},timestamp,media_type,permalink,comment_count&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_KEY}`;
             const response = await fetch(url);
             const data = await response.json();
             console.log(data);
             setImages(data.data);
-            
-            
         };
 
         fetchImages();
@@ -85,9 +84,11 @@ const Instagram: React.FC = () => {
             return (
                 <div>
                     <div className="max-w-[80%] mx-auto flex justify-content-center">
-                       
-                            <img src={currentImage.media_url} alt={currentImage.caption} className="rounded-2xl" />
-                            
+                        <img
+                            src={currentImage.media_url}
+                            alt={currentImage.caption}
+                            className="rounded-2xl"
+                        />
                     </div>
                 </div>
             );

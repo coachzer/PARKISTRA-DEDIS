@@ -5,6 +5,12 @@ const nextConfig = {
             {
                 protocol: "https",
                 hostname: "parkistra.com",
+                port: "",
+            },
+            {
+                protocol: "http",
+                hostname: "parkistra.com",
+                port: "",
             },
             {
                 protocol: "https",
@@ -39,4 +45,4 @@ const nextConfig = {
     },
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;
