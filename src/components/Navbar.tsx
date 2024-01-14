@@ -69,20 +69,18 @@ export default function Navbar() {
 
     return (
         <nav className="z-1000 w-full">
-            <div className="flex justify-between items-center w-full h-20 px-4 text-white bg-[#ECE3CE] nav">
-                <div>
-                    {
-                        <h1 className="text-5xl font-signature ml-2">
-                            <a
-                                className="link-underline link-underline-black"
-                                href="/"
-                                rel="noreferrer"
-                            >
-                                <Image src={Logo} alt={"Logo"} width={100} height={100} />
-                            </a>
-                        </h1>
-                    }
-                </div>
+            <div className="flex justify-between items-center w-full h-20 px-4 text-white bg-gradient-to-t from-[#ECE3CE] to-[#dad2c1] nav">
+                {
+                    <h1 className="text-5xl font-signature ml-2">
+                        <a
+                            className="link-underline link-underline-black"
+                            href="/"
+                            rel="noreferrer"
+                        >
+                            <Image src={Logo} alt={"Logo"} width={100} height={100} />
+                        </a>
+                    </h1>
+                }
                 <div className="content-center m-auto">
                     <ul className="hidden md:flex">
                         {links.map(
