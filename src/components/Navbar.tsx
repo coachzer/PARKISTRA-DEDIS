@@ -68,7 +68,7 @@ export default function Navbar() {
     // };
 
     return (
-        <nav className="z-1000 w-full">
+        <nav className={`relative z-50 w-full ${nav ? "h-screen" : "h-20"}`}>
             <div className="flex justify-between items-center w-full h-20 px-4 text-white bg-gradient-to-t from-[#ECE3CE] to-[#dad2c1] nav">
                 {
                     <h1 className="text-5xl font-signature ml-2">
@@ -99,18 +99,18 @@ export default function Navbar() {
                 <div style={{ width: "100px" }} /> {/* Spacer div */}
                 <div
                     onClick={() => setNav(!nav)}
-                    className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden"
+                    className="cursor-pointer pr-4 z-50 text-gray-500 md:hidden"
                 >
                     {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
                 </div>
                 {nav && (
-                    <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-[#ECE3CE] to-[#3A4D39] text-gray-500">
+                    <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-[#ECE3CE] to-[#dad2c1] ">
                         {links.map(
                             (link) =>
                                 (!link.requiresAuth || session) && (
                                     <li
                                         key={link.id}
-                                        className="px-4 cursor-pointer capitalize py-6 text-4xl"
+                                        className="px-4 cursor-pointer capitalize py-6 text-gray-500 text-2xl hover:scale-105 hover:text-white duration-200 link-underline"
                                     >
                                         <Link onClick={() => setNav(!nav)} href={link.href}>
                                             {link.link}

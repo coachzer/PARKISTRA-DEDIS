@@ -16,7 +16,7 @@ type ImageData = {
     media_type: string;
     permalink: string;
     comment_count: number;
-    children?: { data: { media_url: string }[] };
+    children?: { data: { media_url: string; media_type: string }[] };
 };
 
 const Instagram: React.FC = () => {
@@ -28,7 +28,7 @@ const Instagram: React.FC = () => {
         const fetchImages = async () => {
             Modal.setAppElement("body");
 
-            const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,children{media_url},timestamp,media_type,permalink,comment_count&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_KEY}`;
+            const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,children{media_url,media_type},timestamp,media_type,permalink,comment_count&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_KEY}`;
             const response = await fetch(url);
             const data = await response.json();
             console.log(data);
@@ -51,7 +51,7 @@ const Instagram: React.FC = () => {
         if (currentImage?.children?.data && currentImage.children.data.length > 0) {
             return (
                 <div>
-                    <div className="max-w-[80%] mx-auto flex justify-content-center ">
+                    <div className="max-w-[80%] mx-auto py-10 flex justify-content-center ">
                         <Carousel
                             showArrows={true}
                             showStatus={false}
@@ -63,11 +63,27 @@ const Instagram: React.FC = () => {
                         >
                             {currentImage.children.data.map((carouselImage, index) => (
                                 <div key={index}>
-                                    <img
+                                    {/* <img
                                         src={carouselImage.media_url}
                                         className="rounded-2xl"
                                         alt={`carousel-${index}`}
-                                    />
+                                    /> */}
+                                    {carouselImage.media_type === "VIDEO" ? (
+                                        <video controls className="rounded-2xl shadow-lg">
+                                            <source
+                                                src={carouselImage.media_url}
+                                                type="video/mp4"
+                                            />
+                                        </video>
+                                    ) : (
+                                        <Image
+                                            src={carouselImage.media_url}
+                                            alt={`carousel-${index}`}
+                                            width={400}
+                                            height={300}
+                                            className="rounded-2xl shadow-lg hover:shadow-xl transition duration-250 ease-in-out  transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
+                                        />
+                                    )}
                                 </div>
                             ))}
                         </Carousel>
@@ -83,9 +99,11 @@ const Instagram: React.FC = () => {
             return (
                 <div>
                     <div className="max-w-[80%] mx-auto flex justify-content-center">
-                        <img
+                        <Image
                             src={currentImage.media_url}
                             alt={currentImage.caption}
+                            width={400}
+                            height={300}
                             className="rounded-2xl"
                         />
                     </div>
@@ -99,17 +117,23 @@ const Instagram: React.FC = () => {
         <div className="gap-4 grid grid-cols-1 md:grid-cols-4 justify-items-center p-4 align-middle">
             {images &&
                 images
-                    .filter((image) => image.media_type !== "VIDEO" && image.media_type !== "IGTV")
+                    .filter((image) => image.media_type !== "IGTV")
                     .map((image) => (
                         <div key={image.id} className="grid items-center">
                             <div onClick={() => openModal(image)}>
-                                <Image
-                                    src={image.media_url}
-                                    alt={image.caption}
-                                    width={400}
-                                    height={300}
-                                    className="rounded-2xl shadow-lg hover:shadow-xl transition duration-250 ease-in-out  transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
-                                />
+                                {image.media_type === "VIDEO" ? (
+                                    <video className="rounded-2xl shadow-lg" controls>
+                                        <source src={image.media_url} type="video/mp4" />
+                                    </video>
+                                ) : (
+                                    <Image
+                                        src={image.media_url}
+                                        alt={image.caption}
+                                        width={400}
+                                        height={300}
+                                        className="rounded-2xl shadow-lg hover:shadow-xl transition duration-250 ease-in-out  transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
+                                    />
+                                )}
                             </div>
                         </div>
                     ))}
