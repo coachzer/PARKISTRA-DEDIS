@@ -5,6 +5,8 @@ import Navbar from "@/components/Navbar";
 import AuthProvider from "@/components/AuthProvider";
 import { SessionProvider } from "next-auth/react";
 import Footer from "@/components/Footer";
+import { Suspense } from "react";
+import LoadingPage from "./loading";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +26,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <AuthProvider>
                         <Navbar />
                         <div className="flex flex-col min-h-[100vh]">
-                            <div style={{ flex: "1 0 auto" }}>{children}</div>
+                            <div style={{ flex: "1 0 auto" }}>
+                                <Suspense fallback={<LoadingPage />}>{children}</Suspense>
+                            </div>
                             <Footer />
                         </div>
                     </AuthProvider>

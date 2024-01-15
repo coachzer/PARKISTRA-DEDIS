@@ -1,5 +1,3 @@
-"use client";
-
 import { HiOutlineTrash } from "react-icons/hi";
 import { useRouter } from "next/navigation";
 
@@ -9,13 +7,12 @@ export default function RemoveBtn({ id }: String | any) {
         const confirmed = confirm("Are you sure?");
 
         if (confirmed) {
-            const res = await fetch(`/api/auth/project?id=${id}`, {
+            await fetch(`/api/auth/project?id=${id}`, {
                 method: "DELETE",
-            });
-
-            if (res.ok) {
+            }).then(() => {
+                router.push("/projects");
                 router.refresh();
-            }
+            });
         }
     };
 

@@ -53,7 +53,7 @@ export default async function ProjectPage({ params: { id } }: ProjectPageProps) 
                 </div>
 
                 {/* Added margin and order to adjust the layout */}
-                <div className="mx-auto mb-4">
+                <div className="mx-auto mb-4 flex justify-center">
                     <Image
                         src={project.imageUrl}
                         alt={project.name}

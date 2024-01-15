@@ -14,21 +14,16 @@ interface Project {
     updatedAt: Date;
 }
 
-let cache: Project[] | null = null;
-
 export default function Home() {
     const [projects, setProjects] = useState<Project[]>([]);
 
     useEffect(() => {
         const fetchProjects = async () => {
-            if (cache) {
-                setProjects(cache);
-            } else {
+            
                 const response = await fetch("/api/auth/project");
                 const data = await response.json();
-                cache = data.projects;
                 setProjects(data.projects);
-            }
+            
         };
 
         fetchProjects();
