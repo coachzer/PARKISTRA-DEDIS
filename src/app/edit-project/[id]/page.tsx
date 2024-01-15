@@ -1,7 +1,6 @@
 "use client";
 
 import EditForm from "@/components/EditForm";
-import next from "next";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -35,7 +34,7 @@ async function getProjectById(id: string) {
     }
 }
 
-export default function EditTopic(params: any) {
+export default function EditProject(params: any) {
     // console.log("id: " + params.params.id);
 
     const [projectData, setProjectData] = useState({

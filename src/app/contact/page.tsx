@@ -1,6 +1,5 @@
 // components/Contact.tsx
 import React from "react";
-import Head from "next/head";
 import Image from "next/image";
 import ContactImage from "../../../public/images/contact.jpg";
 
