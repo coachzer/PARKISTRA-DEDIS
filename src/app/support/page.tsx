@@ -20,7 +20,10 @@ const SupportUs: React.FC = () => {
                         actions each year.
                     </p>
                     <p className="text-gray-700 mb-6">
-                        <Link href="https://parkistra.com/wp-content/uploads/2023/03/AJPES-LP-2022.pdf">
+                        <Link
+                            className="link link-primary"
+                            href="https://parkistra.com/wp-content/uploads/2023/03/AJPES-LP-2022.pdf"
+                        >
                             Here you can read the financial report for 2022
                         </Link>
                         . In 2022 we had two employees, both on minimum wage.
@@ -42,9 +45,12 @@ const SupportUs: React.FC = () => {
                         </p>
                         <p className="text-gray-700 mb-6">
                             You can donate your percentage by downloading the{" "}
-                            <Link href="/obrazec_enprocent.pdf">form</Link> as a pdf, printing it,
-                            signing it and sending it to the address of the competent financial
-                            office. Alternatively, you can submit the form via the eTaxes portal{" "}
+                            <Link className="link link-primary" href="/obrazec_enprocent.pdf">
+                                form
+                            </Link>{" "}
+                            as a pdf, printing it, signing it and sending it to the address of the
+                            competent financial office. Alternatively, you can submit the form via
+                            the eTaxes portal{" "}
                             <Link href="https://www.cnvos.si/enprocent/">(link)</Link>. Thank you!
                         </p>
                     </div>

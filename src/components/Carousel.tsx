@@ -12,7 +12,7 @@ const Carousel: React.FC = () => {
             <div className="carousel mx-auto max-w-screen-xl flex justify-items-center rounded-lg">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img
-                        src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
+                        src="http://parkistra.com/en/wp-content/uploads/2014/05/62RujCveti-x.jpg"
                         className=""
                     />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -26,7 +26,7 @@ const Carousel: React.FC = () => {
                 </div>
                 <div id="slide2" className="carousel-item relative w-full">
                     <img
-                        src="https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
+                        src="http://parkistra.com/en/wp-content/uploads/2014/05/Panorama2-x.jpg"
                         className=""
                     />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -40,7 +40,7 @@ const Carousel: React.FC = () => {
                 </div>
                 <div id="slide3" className="carousel-item relative w-full">
                     <img
-                        src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg"
+                        src="http://parkistra.com/en/wp-content/uploads/2014/05/100_9575-cut2.jpg"
                         className="w-full"
                     />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -54,7 +54,7 @@ const Carousel: React.FC = () => {
                 </div>
                 <div id="slide4" className="carousel-item relative w-full">
                     <img
-                        src="https://daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"
+                        src="http://parkistra.com/en/wp-content/uploads/2014/05/IMG_7899-x2.jpg"
                         className="w-full"
                     />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

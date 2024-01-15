@@ -4,7 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Modal from "react-modal";
 import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 // replace with your app element id
 
@@ -60,6 +61,30 @@ const Instagram: React.FC = () => {
                             thumbWidth={100}
                             infiniteLoop={true}
                             showThumbs={false}
+                            renderArrowPrev={(clickHandler, hasPrev) => {
+                                return (
+                                    <div
+                                        className={`${
+                                            hasPrev ? "absolute" : "hidden"
+                                        } top-1/2 transform -translate-y-1/2 left-0 flex justify-center items-center p-3 opacity-30 hover:opacity-100 cursor-pointer z-20`}
+                                        onClick={clickHandler}
+                                    >
+                                        <FaArrowCircleLeft className="w-9 h-9 text-white" />
+                                    </div>
+                                );
+                            }}
+                            renderArrowNext={(clickHandler, hasNext) => {
+                                return (
+                                    <div
+                                        className={`${
+                                            hasNext ? "absolute" : "hidden"
+                                        } top-1/2 transform -translate-y-1/2 right-0 flex justify-center items-center p-3 opacity-30 hover:opacity-100 cursor-pointer z-20`}
+                                        onClick={clickHandler}
+                                    >
+                                        <FaArrowCircleRight className="w-9 h-9 text-white" />
+                                    </div>
+                                );
+                            }}
                         >
                             {currentImage.children.data.map((carouselImage, index) => (
                                 <div key={index}>
@@ -69,18 +94,26 @@ const Instagram: React.FC = () => {
                                         alt={`carousel-${index}`}
                                     /> */}
                                     {carouselImage.media_type === "VIDEO" ? (
-                                        <video controls className="rounded-2xl shadow-lg">
-                                            <source
-                                                src={carouselImage.media_url}
-                                                type="video/mp4"
-                                            />
-                                        </video>
+                                        <div className="flex justify-center items-center h-full">
+                                            <video
+                                                controls
+                                                className="rounded-2xl shadow-lg max-w-full h-auto"
+                                            >
+                                                <source
+                                                    src={carouselImage.media_url}
+                                                    type="video/mp4"
+                                                />
+                                            </video>
+                                        </div>
                                     ) : (
                                         <Image
                                             src={carouselImage.media_url}
                                             alt={`carousel-${index}`}
                                             width={400}
                                             height={300}
+                                            layout="responsive"
+                                            objectFit="contain"
+                                            objectPosition="center"
                                             className="rounded-2xl shadow-lg hover:shadow-xl transition duration-250 ease-in-out  transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
                                         />
                                     )}
@@ -98,12 +131,15 @@ const Instagram: React.FC = () => {
         if (currentImage) {
             return (
                 <div>
-                    <div className="max-w-[80%] mx-auto flex justify-content-center">
+                    <div className="w-full mx-auto flex justify-content-center">
                         <Image
                             src={currentImage.media_url}
                             alt={currentImage.caption}
                             width={400}
                             height={300}
+                            layout="responsive"
+                            objectFit="contain"
+                            objectPosition="center"
                             className="rounded-2xl"
                         />
                     </div>
@@ -122,17 +158,32 @@ const Instagram: React.FC = () => {
                         <div key={image.id} className="grid items-center">
                             <div onClick={() => openModal(image)}>
                                 {image.media_type === "VIDEO" ? (
-                                    <video className="rounded-2xl shadow-lg" controls>
-                                        <source src={image.media_url} type="video/mp4" />
-                                    </video>
+                                    <div className="flex flex-col items-center">
+                                        <video
+                                            className="rounded-2xl shadow-lg max-h-[400px]"
+                                            controls
+                                        >
+                                            <source src={image.media_url} type="video/mp4" />
+                                        </video>
+                                        <div className="text-center max-w-[400px] mt-2">
+                                            <p>{image.caption}</p>
+                                            <p>{timestampCorrect}</p>
+                                        </div>
+                                    </div>
                                 ) : (
-                                    <Image
-                                        src={image.media_url}
-                                        alt={image.caption}
-                                        width={400}
-                                        height={300}
-                                        className="rounded-2xl shadow-lg hover:shadow-xl transition duration-250 ease-in-out  transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
-                                    />
+                                    <div className="flex flex-col items-center">
+                                        <Image
+                                            src={image.media_url}
+                                            alt={image.caption}
+                                            width={400}
+                                            height={300}
+                                            className="rounded-2xl shadow-lg hover:shadow-xl transition duration-250 ease-in-out  transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
+                                        />
+                                        <div className="text-center max-w-[400px] mt-2">
+                                            <p>{image.caption}</p>
+                                            <p>{timestampCorrect}</p>
+                                        </div>
+                                    </div>
                                 )}
                             </div>
                         </div>
@@ -142,25 +193,25 @@ const Instagram: React.FC = () => {
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
-                contentLabel="Instagram Image Modal"
+                contentLabel="Instagram Content Modal"
                 style={{
                     overlay: {
                         position: "fixed",
                         display: "flex",
+                        justifyContent: "center",
                         alignItems: "center",
                         top: 0,
                         left: 0,
                         right: 0,
                         bottom: 0,
-                        backgroundColor: "rgba(255, 255, 255, 0.5)",
+                        backgroundColor: "rgba(0, 0, 0, 0.8)",
                     },
                     content: {
                         position: "absolute",
                         display: "flex",
+                        justifyContent: "center",
                         alignItems: "center",
-                        margin: "0% 25%",
-                        top: "1%",
-                        bottom: "1%",
+                        margin: "0% 30%",
                         backgroundColor: "rgba(255, 255, 255, 0)",
                         // boxShadow: "0 0 10px rgba(0, 0, 0, 0.9)",
                         overflow: "auto",
@@ -179,10 +230,10 @@ const Instagram: React.FC = () => {
                                 ? displayCarousel()
                                 : displaySingleImage()}
                         </div>
-                        <div className="mt-2 bg-[rgb(1,1,1,0.9)] max-w-[65%] mx-auto rounded-xl text-white text-center">
+                        {/* <div className="mt-2 bg-[rgb(1,1,1,0.9)] max-w-[65%] mx-auto rounded-xl text-white text-center">
                             <p>{currentImage.caption}</p>
                             <p>{timestampCorrect}</p>
-                        </div>
+                        </div> */}
                     </div>
                 )}
             </Modal>
