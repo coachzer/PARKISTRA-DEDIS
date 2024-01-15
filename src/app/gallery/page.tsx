@@ -20,6 +20,8 @@ type ImageData = {
     children?: { data: { media_url: string; media_type: string }[] };
 };
 
+let cache: ImageData[] = [];
+
 const Instagram: React.FC = () => {
     const [images, setImages] = useState<ImageData[]>([]);
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -28,12 +30,14 @@ const Instagram: React.FC = () => {
     useEffect(() => {
         const fetchImages = async () => {
             Modal.setAppElement("body");
-
-            const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,children{media_url,media_type},timestamp,media_type,permalink,comment_count&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_KEY}`;
-            const response = await fetch(url);
-            const data = await response.json();
-            console.log(data);
-            setImages(data.data);
+            if (cache.length > 0) {
+                setImages(cache);
+            } else {
+                const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,children{media_url,media_type},timestamp,media_type,permalink,comment_count&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_KEY}`;
+                const response = await fetch(url);
+                const data = await response.json();
+                setImages(data.data);
+            }
         };
 
         fetchImages();

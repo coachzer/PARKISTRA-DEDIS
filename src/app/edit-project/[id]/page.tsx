@@ -6,17 +6,27 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
+interface Project {
+    id: string;
+    name: string;
+    description: string;
+}
+
+let cache: Record<string, Project> = {};
+
 async function getProjectById(id: string) {
-    // console.log(`Fetching project with id: ${id}`);
+    if (cache[id]) {
+        return cache[id];
+    }
+
     try {
         const res = await fetch(`/api/auth/project/${id}`);
-        // console.log(`Response status: ${res.status}`);
-        // console.log(res);
         if (!res.ok) {
             throw new Error("Failed to fetch project");
         }
 
         const project = await res.json();
+        cache[id] = project; // Store the data in the cache
 
         return project;
     } catch (error) {

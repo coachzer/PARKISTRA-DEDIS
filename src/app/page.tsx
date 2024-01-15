@@ -14,14 +14,21 @@ interface Project {
     updatedAt: Date;
 }
 
+let cache: Project[] | null = null;
+
 export default function Home() {
     const [projects, setProjects] = useState<Project[]>([]);
 
     useEffect(() => {
         const fetchProjects = async () => {
-            const response = await fetch("/api/auth/project");
-            const data = await response.json();
-            setProjects(data.projects);
+            if (cache) {
+                setProjects(cache);
+            } else {
+                const response = await fetch("/api/auth/project");
+                const data = await response.json();
+                cache = data.projects;
+                setProjects(data.projects);
+            }
         };
 
         fetchProjects();
@@ -47,7 +54,7 @@ export default function Home() {
                 <Carousel />
             </div>
             <div className="mx-auto max-w-screen-xl">
-                <div className="hero  my-4 px-4 rounded-xl bg-blue-200">
+                <div className="hero  my-4 px-4 rounded-xl bg-white">
                     <div className="hero-content flex-col lg:flex-row">
                         {projects[0] && (
                             <Image
