@@ -8,8 +8,10 @@ import Image from "next/image";
 const About: React.FC = () => {
     return (
         <main className="bg-[#ECE3CE]">
-            <div className="support-us-container bg-gray-100 rounded-md shadow-md max-w-4xl mx-auto p-8 mt-11 mb-11 text-center">
-                <h1 className="text-5xl font-bold mb-6 text-gray-800">Welcome to Park Istra</h1>
+            <div className="support-us-container bg-gray-100 rounded-md shadow-md max-w-4xl mx-auto p-8 mt-11 mb-11">
+                <h1 className="text-5xl text-center font-bold mb-6 text-gray-800">
+                    Welcome to Park Istra
+                </h1>
                 <p className="text-gray-700 mb-6">
                     Park Istra is a passionate charity organization located in the breathtaking
                     inland of Istria. Our unwavering mission is to contribute to the well-being of
@@ -19,7 +21,9 @@ const About: React.FC = () => {
                     and supporting sustainable initiatives in Slovenian Istria and beyond.
                 </p>
 
-                <h2 className="text-3xl font-bold mb-4 text-gray-800">Our Commitment</h2>
+                <h2 className="text-3xl text-center font-bold mb-4 text-gray-800">
+                    Our Commitment
+                </h2>
                 <p className="text-gray-700 mb-6">
                     At Park Istra, we take pride in supporting ideas and projects that have a
                     lasting positive impact on our region and beyond. Our dedicated team works
@@ -27,7 +31,9 @@ const About: React.FC = () => {
                     long-term benefits for the community.
                 </p>
 
-                <h2 className="text-3xl font-bold mb-4 text-gray-800">Volunteer Center</h2>
+                <h2 className="text-3xl text-center font-bold mb-4 text-gray-800">
+                    Volunteer Center
+                </h2>
                 <p className="text-gray-700 mb-6">
                     In 2019, we established the Park Istra Volunteer Center in the charming village
                     of Kastelec, the only center of its kind in Slovenia and beyond. With the
@@ -39,10 +45,12 @@ const About: React.FC = () => {
                     over 100,000 hours of their time.
                 </p>
 
-                <h2 className="text-3xl font-bold mb-4 text-gray-800">Awards and Recognition</h2>
+                <h2 className="text-3xl text-center font-bold mb-4 text-gray-800">
+                    Awards and Recognition
+                </h2>
                 <p className="text-gray-700 mb-6">
                     Our commitment to excellence has not gone unnoticed. In 2021, one of Park
-                    Istra`&apos;`s projects received a nomination for the prestigious Salto Award,
+                    Istra&apos;s projects received a nomination for the prestigious Salto Award,
                     recognizing it as one of the top five volunteering projects in Europe. In 2019,
                     Petra Matos, the founder of Park Istra, was honored with a national award for
                     outstanding achievements in volunteering. Furthermore, in 2017, Park Istra was
