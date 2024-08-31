@@ -45,13 +45,24 @@ const SupportUs: React.FC = () => {
                         </p>
                         <p className="text-gray-700 mb-6">
                             You can donate your percentage by downloading the{" "}
-                            <Link className="link link-primary" href="/obrazec_enprocent.pdf">
+                            <Link
+                                className="link link-primary"
+                                href="https://www.cnvos.si/pdf/genPDFfromPOST/?template=dobrodelen_pdf&amp;filename=obrazec_enprocent&amp;source_domain=Widget v1: parkistra.com&amp;selected_orgs=Park Istra|=|41963571|=|1.0&amp;name=&amp;address=&amp;postalCode=&amp;city=&amp;taxNumber="
+                                download="zahteva_za_namenitev_dela_dohodnine.pdf"
+                                target="_blank"
+                            >
                                 form
                             </Link>{" "}
                             as a pdf, printing it, signing it and sending it to the address of the
                             competent financial office. Alternatively, you can submit the form via
                             the eTaxes portal{" "}
-                            <Link href="https://www.cnvos.si/enprocent/">(link)</Link>. Thank you!
+                            <Link
+                                className="link link-primary"
+                                href="https://www.cnvos.si/enprocent/"
+                            >
+                                link
+                            </Link>
+                            . Thank you!
                         </p>
                     </div>
                     <p className="text-gray-700 mb-6">

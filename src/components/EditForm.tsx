@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import FormSubmitButton from "./FormSubmitButton";
 
 export default function EditForm({
     id,
@@ -62,22 +63,19 @@ export default function EditForm({
                         <input
                             onChange={(e) => setNewName(e.target.value)}
                             value={newName}
-                            className="border border-slate-500 px-8 py-2"
+                            className="mb-3 w-full input input-bordered"
                             type="text"
-                            placeholder="Project Name"
+                            placeholder="Name"
                         />
 
-                        <input
+                        <textarea
                             onChange={(e) => setNewDescription(e.target.value)}
                             value={newDescription}
-                            className="border border-slate-500 px-8 py-2"
-                            type="text"
-                            placeholder="Project Description"
+                            className="textarea-bordered textarea mb-3 w-full p-5"
+                            placeholder="Description"
                         />
 
-                        <button className="bg-green-600 font-bold text-white py-3 px-6 w-fit">
-                            Update Project
-                        </button>
+                        <FormSubmitButton className="btn-block">Edit Project</FormSubmitButton>
                     </form>
                 </div>
             </div>

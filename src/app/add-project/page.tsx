@@ -42,7 +42,7 @@ export default function AddProjectPage() {
                             required
                             name="description"
                             placeholder="Description"
-                            className="textarea-bordered textarea mb-3 w-full"
+                            className="textarea-bordered textarea mb-3 w-full p-5"
                         />
                         <input
                             required

@@ -32,20 +32,6 @@ export default function Home() {
         fetchProjects();
     }, []);
 
-    const images: string[] = [
-        // Add more images as needed
-        "/images/carousel3.jpg",
-        "/images/carousel2.jpg",
-        "/images/carousel1.jpg",
-        "/images/carousel4.jpg",
-        "/images/carousel5.jpg",
-        "/images/carousel6.jpg",
-        "/images/carousel7.jpg",
-        "/images/carousel8.jpg",
-        "/images/carousel9.jpg",
-        "/images/carousel10.jpg",
-    ];
-
     return (
         <div className="bg-[#ECE3CE]">
             <div>

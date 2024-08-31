@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { cache } from "react";
+import parse from "html-react-parser";
 
 interface ProjectPageProps {
     params: {
@@ -24,17 +25,9 @@ const getProject = cache(async (id: string) => {
     return project;
 });
 
-// export async function generateMetadate({ params: { id } }: ProjectPageProps): Promise<Metadata> {
-//     const project = await getProject(id);
-
-//     return {
-//         title: project.name + " - Parkistra",
-//         description: project.description,
-//         openGraph: {
-//             images: [{ url: project.imageUrl }],
-//         },
-//     };
-// }
+const formatTextWithLineBreaks = (text: String) => {
+    return text.replace(/\r\n/g, "<br/>").replace(/\n/g, "<br/>");
+};
 
 export default async function ProjectPage({ params: { id } }: ProjectPageProps) {
     const project = await getProject(id);
@@ -48,7 +41,10 @@ export default async function ProjectPage({ params: { id } }: ProjectPageProps) 
                     </h1>
                     <div>
                         <h2 className="text-2xl font-bold mb-2 text-gray-700">Description</h2>
-                        <p className="text-gray-700 text-lg">{project.description}</p>
+
+                        <p className="text-gray-700 text-lg">
+                            {parse(formatTextWithLineBreaks(project.description))}
+                        </p>
                     </div>
                 </div>
 
