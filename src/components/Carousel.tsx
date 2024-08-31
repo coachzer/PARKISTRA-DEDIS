@@ -6,6 +6,7 @@ const Carousel: React.FC = () => {
             <div className="carousel mx-auto max-w-screen-xl flex justify-items-center rounded-lg">
                 <div id="slide1" className="carousel-item relative w-full h-[300px]">
                     <Image
+                        priority={true}
                         src="http://parkistra.com/en/wp-content/uploads/2014/05/62RujCveti-x.jpg"
                         alt=""
                         fill={true}
@@ -21,6 +22,7 @@ const Carousel: React.FC = () => {
                 </div>
                 <div id="slide2" className="carousel-item relative w-full h-[300px]">
                     <Image
+                        priority={true}
                         src="http://parkistra.com/en/wp-content/uploads/2014/05/Panorama2-x.jpg"
                         alt=""
                         fill={true}
@@ -36,6 +38,7 @@ const Carousel: React.FC = () => {
                 </div>
                 <div id="slide3" className="carousel-item relative w-full h-[300px]">
                     <Image
+                        priority={true}
                         src="http://parkistra.com/en/wp-content/uploads/2014/05/100_9575-cut2.jpg"
                         alt=""
                         fill={true}
@@ -51,6 +54,7 @@ const Carousel: React.FC = () => {
                 </div>
                 <div id="slide4" className="carousel-item relative w-full h-[300px]">
                     <Image
+                        priority={true}
                         src="http://parkistra.com/en/wp-content/uploads/2014/05/IMG_7899-x2.jpg"
                         alt=""
                         fill={true}

@@ -111,6 +111,7 @@ const Instagram: React.FC = () => {
                                         </div>
                                     ) : (
                                         <Image
+                                            priority={true}
                                             src={carouselImage.media_url}
                                             alt={`carousel-${index}`}
                                             width={400}
@@ -137,6 +138,7 @@ const Instagram: React.FC = () => {
                 <div>
                     <div className="w-full mx-auto flex justify-content-center">
                         <Image
+                            priority={true}
                             src={currentImage.media_url}
                             alt={currentImage.caption}
                             width={400}
@@ -177,6 +179,7 @@ const Instagram: React.FC = () => {
                                 ) : (
                                     <div className="flex flex-col items-center">
                                         <Image
+                                            priority={true}
                                             src={image.media_url}
                                             alt={image.caption}
                                             width={400}

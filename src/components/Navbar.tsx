@@ -77,7 +77,13 @@ export default function Navbar() {
                             href="/"
                             rel="noreferrer"
                         >
-                            <Image src={Logo} alt={"Logo"} width={100} height={100} />
+                            <Image
+                                priority={true}
+                                src={Logo}
+                                alt={"Logo"}
+                                width={100}
+                                height={100}
+                            />
                         </a>
                     </h1>
                 }

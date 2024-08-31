@@ -83,7 +83,8 @@ const SupportUs: React.FC = () => {
 
                     <Link
                         className="inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-white uppercase transition bg-blue-700 rounded shadow ripple hover:shadow-lg hover:bg-blue-800 focus:outline-none"
-                        href="https://www.paypal.com/donate?token=x0O6cwdUMrnpfXbPkRhidHmnpYittKEby2WAsxijoTt6tKdUdG4AWKQjWSIbKM5hYvlwXSP-12odx1jS"
+                        href="https://www.paypal.com/donate/?token=KqJjBanE4sefclXYIaVT_65jTALCLkrhwEpGfom7rseA4VuqcRqEZ410_hkD2ZLumE-tCCWuiOgK6E2p"
+                        target="_blank"
                     >
                         {" "}
                         Paypal donation link

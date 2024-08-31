@@ -59,16 +59,19 @@ const About: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <Image
+                        priority={true}
                         src={p1Photo}
                         alt="Image 1"
                         className="w-full h-full object-cover rounded-md"
                     />
                     <Image
+                        priority={true}
                         src={p2Photo}
                         alt="Image 2"
                         className="w-full h-full object-cover rounded-md"
                     />
                     <Image
+                        priority={true}
                         src={p3Photo}
                         alt="Image 3"
                         className="w-full h-full object-cover rounded-md"

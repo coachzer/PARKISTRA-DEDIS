@@ -19,11 +19,14 @@ export default function Home() {
 
     useEffect(() => {
         const fetchProjects = async () => {
-            
-                const response = await fetch("/api/auth/project");
-                const data = await response.json();
-                setProjects(data.projects);
-            
+            fetch("/api/auth/project")
+                .then((response) => response.json())
+                .then((data) => {
+                    setProjects(data.projects);
+                })
+                .catch((error) => {
+                    console.error("Error fetching projects:", error);
+                });
         };
 
         fetchProjects();
@@ -53,12 +56,12 @@ export default function Home() {
                     <div className="hero-content flex-col lg:flex-row">
                         {projects[0] && (
                             <Image
+                                priority={true}
                                 src={projects[0].imageUrl}
                                 alt={projects[0].name}
                                 width={400}
                                 height={800}
                                 className="w-full max-w-sm rounded-lg shadow-2xl"
-                                priority
                             />
                         )}
                         {projects[0] && (

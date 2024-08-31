@@ -20,6 +20,7 @@ export default function ProjectCard({ project }: ProjectProps) {
             >
                 <figure>
                     <Image
+                        priority={true}
                         src={project.imageUrl}
                         alt={project.name}
                         width="800"

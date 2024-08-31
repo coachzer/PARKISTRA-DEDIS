@@ -54,6 +54,7 @@ const Contact: React.FC = () => {
 
                 <div className="flex-shrink-0">
                     <Image
+                        priority={true}
                         src={ContactImage}
                         alt="Contact Image"
                         className="rounded-full w-52 h-52 object-cover"
