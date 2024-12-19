@@ -311,9 +311,6 @@ const Gallery = () => {
           <img src={post.media_url} alt={post.caption} />
           <p>
             {truncateText(post.caption, 100)}
-            {post.caption.length > 100 && (
-              <a href={post.permalink} target="_blank" rel="noopener noreferrer"> Read more</a>
-            )}
           </p>
           <a href={post.permalink} target="_blank" rel="noopener noreferrer" className="view-instagram">
             View on Instagram
