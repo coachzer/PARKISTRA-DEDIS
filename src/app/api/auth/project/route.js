@@ -1,6 +1,8 @@
 import { connectToDatabase } from "@/app/helpers/server-helpers";
 import prisma from "@/lib/db/prisma";
 import { NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/helpers/authOptions";
 
 export async function GET() {
     try {
@@ -15,6 +17,10 @@ export async function GET() {
 }
 
 export async function POST(request) {
+    const session = await getServerSession(authOptions);
+    if (!session) {
+        return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+    }
     try {
         const { name, description } = await request.json();
         await connectToDatabase();
@@ -28,6 +34,10 @@ export async function POST(request) {
 }
 
 export async function DELETE(req) {
+    const session = await getServerSession(authOptions);
+    if (!session) {
+        return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+    }
     const id = req.nextUrl.searchParams.get("id");
     try {
         await connectToDatabase();
