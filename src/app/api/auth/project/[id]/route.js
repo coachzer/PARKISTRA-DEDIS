@@ -36,11 +36,16 @@ export async function PUT(request, { params }) {
     }
     try {
         const { id } = params;
-        const { newName: name, newDescription: description } = await request.json();
+        const {
+            newName: name,
+            newDescription: description,
+            newNameSlovene: nameSlovene,
+            newDescriptionSlovene: descriptionSlovene,
+        } = await request.json();
 
         await prisma.project.update({
             where: { id: id },
-            data: { name, description },
+            data: { name, description, nameSlovene, descriptionSlovene },
         });
 
         return NextResponse.json({ message: "Project updated" }, { status: 200 });
