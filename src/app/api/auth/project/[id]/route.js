@@ -1,8 +1,14 @@
 import { connectToDatabase } from "@/app/helpers/server-helpers";
 import prisma from "@/lib/db/prisma";
 import { NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/helpers/authOptions";
 
 export async function DELETE(req) {
+    const session = await getServerSession(authOptions);
+    if (!session) {
+        return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+    }
     const searchParams = req.nextUrl.searchParams;
     const id = searchParams.get("id");
     try {
@@ -24,6 +30,10 @@ export async function DELETE(req) {
 }
 
 export async function PUT(request, { params }) {
+    const session = await getServerSession(authOptions);
+    if (!session) {
+        return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+    }
     try {
         const { id } = params;
         const { newName: name, newDescription: description } = await request.json();
